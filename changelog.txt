@@ -1,0 +1,481 @@
+Changelog
+
+v.1.16 [Pre-Release 1] (Pending)
+The first pre-release version of the launcher contains a rework of the layouts and designs throughout the system. It also fixed a lot of visual bugs and optimized the layouts for phones.
+=== Additions ===
+- Added a Search Screen, similar to the Google Home page which reduces loading times. You can switch to the normal home page in it. You can also disable the feature on Settings > Behavior > Search Screen.
+- Added the Main Menu, organizing the launcher navigation and page action buttons in one place.
+- Added a Library Profile System.
+- Added the Shortcut Search option on the search bar that lets you search specific shortcuts.
+- Added the URL Search option on the search bar that lets you enter URLs without it being a search query.
+- Added an option to customize specific element properties such as color and fonts in Settings > Appearance > Element-Specific.
+- Added an option to disable the shadow color changing to the accent hover color in Settings > Behavior > Display.
+- Added an option to disable transition animations on Settings > Behavior > Display.
+- Added an option to show the seconds on the clock on Settings > Behavior > Clock.
+- Added an option to adjust the update duration of the clock, internet status, and battery percentage on Settings > Behavior > Clock.
+- Added an option to blur the background of the home screen in Settings > Appearance > Wallpaper.
+- Added an option to open shortcuts in the same tab on Settings > Behavior.
+- Added an option to compress the header content on Settings > Behavior > Menus.
+- Added an option to only display the button icons on the header on Settings > Behavior > Menus.
+- Added an option to only display the header and sidebar when hovering over it on Settings > Behavior > Menus.
+- Added several options to adjust how the background wallpaper is handled.
+- Added Page Action buttons on the Home page.
+=== Changes ===
+- Updated the general UI system.
+- Updated the Header buttons to have an icon beside them.
+- Header buttons will now compress into icons only when the screen is small enough.
+- Replaced the Launcher Navigation flyout with the Main Menu flyout.
+- Updated the page property system.
+- Updated the Sidebar UI system to only use one Sidebar type for all types of content.
+- Updated several subwindow UIs.
+- Updated the category navigation UI.
+- Renamed Table View into Edit Items on Shortcut Editor.
+- Updated how items are displayed on the Edit Items tab.
+- Long strings of text on Edit Items are now restricted to a set width.
+- Moved the Re-order Categories and Shortcuts button on its own tab.
+- Updated the Re-order Categories and Shortcuts system to let you insert the selected item between two items and / or swap its places.
+- The Import list input field on Import / Export Shortcuts tab is no longer restricted to one line of text and is now larger in height and adjustable.
+- A pop-up notification will now appear when importing / exporting shortcuts when no categories have been selected.
+- A pop-up notification will now appear when attempting to create an item with a semi-colon on its name (this has been made prohibited because it messes with the Import / Export Shortcut system).
+- Buttons that link to the Settings page will now display the correct tab instead of the home tab.
+- Onboarding system has been put into its own page.
+- Login system has been put into its own page.
+- Fixed subwindows not being centered properly.
+- Fixed Sidebar item distancing problems when the window is tall enough.
+- Made the loading screen icon and the favicon of pages consistent.
+- Removed action buttons on pages that don't need them.
+- Pressing Enter while in the search box will now do a search.
+- Hovering over a button will now change the color of its shadow into the accent hover color.
+- Updated button designs to be consistent with the shortcut buttons.
+- The clock no longer displays the date when being hovered.
+- The clock, battery percentage, and internet icon will now open the same textbox when clicked.
+- The clock, date, and battery percentage will now only update when it's visible.
+- Battery percentage will now display whether the device is plugged in or not, and if not, the estimated remaining time is displayed.
+- Fixed the change wallpaper detect button using a primary font instead of the secondary one.
+- Fixed page size being too small when viewed on mobile devices.
+- Sidebar will now collapse when the screen is small enough.
+- Optimized page layout for mobile devices.
+- Subwindows will now open in full screen when the window is small enough.
+- Page tabs now change animation based on whether the sidebar tab you clicked is above the currently open tab or below it.
+- Page tabs can now be switched when either Tab + Up Arrow or Down Arrow.
+- Page tabs now have a closing fading animation when switching to another tab.
+- Removed the page footer; copyright and version information can be found on the loading screen.
+
+v.1.15 [Public Preview 4] (December 1, 2022)
+This version adds a way to launch or open all the shortcuts in a category. It also adds a way to import and export shortcuts using text strings that stores the shortcut name and urls.
+=== Additions ===
+- Added an import and export shortcut system for Shortcut Editor.
+- Added a "Welcome back" message on the home page.
+- Added an "Open all shortcuts" button on the Category Navigation sidebar. (Unblock pop-ups for DL_Main.html for this feature to work.)
+=== Changes ===
+- Updated the update information screen.
+- Updated the loading screen to have a fade in animation and an updated layout.
+- The loading screen text will now only appear once it has the proper values loaded.
+- The timer that dictates when the loading screen fades out will now only start counting once the rest of the system is done loading.
+- Header menu buttons now updates the cursor to a pointer when hovering over it.
+- Header buttons now relies on preset arrays to make content more dynamic.
+- Removed the button instruction for Settings > Appearance > Text
+- Toast notifications now limit information that it can display.
+- Toast notifications can be forcefully closed by clicking on it.
+- Toast notifications no longer fades a little bit when being hovered.
+=== Experiments ===
+= Pomodoro Technique Timer =
+- Access on DL_Pomodoro.html.
+= In-Tab Browser and Shortcut Preview =
+- This feature allows you to view the clicked shortcut without opening a new tab, and will be opened inside the launcher tab.
+
+
+v.1.14 [Public Preview 3] (September 14, 2022)
+This version adds a better preset selector window in the Settings. It also introduces Experimental toggles, which lets users control which features that aren't quite ready yet is enabled for them to check out. This update adds the To-do list experimental feature.
+=== Additions ===
+- Added a way to re-order categories and shortcuts in Shortcut Editor. This is still experimental and may break unexpectedly. Please report any bug you may encounter.
+- Added the preset "Garden of Words" and "Underwater".
+- Added wallpaper previews and a better preset selector tab on Settings > Appearance.
+- Added a "Go to Bottom" button that appears when the "Back to Top" button is hovered.
+- Added an "Open Category Navigation" button that appears when the "Back to Top" button is hovered.
+- Added a behavior setting for Shortcut Editor that lets you choose how windows are closed and how input fields are cleared.
+=== Changes ===
+- Reworked the shortcut generation system and the home page should start a little bit faster now.
+- Shortcut Editor Add Item subwindow will automatically close after creating an item by default.
+- Shortcut Editor input fields will automatically clear content after creating an item by default.
+- The 6 checkboxes at the top of the Behavior tab in Settings > Behaviors had been moved to its own "Display" category.
+- Presets now includes the wallpaper.
+- Launcher will now check for internet connection every second instead of at every session.
+- Removed the version and copyright text from the Session Screen.
+- Removed the backdrop filter on the loading screen and will now display a solid color instead of a blurred background.
+- The Category Navigation Sidebar now has a close button.
+- Changed the Information tab icon in Settings > Information
+- Fixed toggleable elements not showing up on first click.
+- Fixed a bug where the opening animation doesn't play or bugs out.
+- Fixed a bug where more than one item is deleted at a time in some occasions on Shortcut Editor.
+- Fixed a bug where the default wallpaper doesn't show up when loading the default setting values.
+- Fixed a bug where default behaviors doesn't set properly when loading the launcher for the first time.
+=== Experiments ===
+These experimental features may or may not be fully released, and it may malfunction. Toggles can be seen on its own Settings tab.
+- Added an Experimental Features tab on the Settings.
+- Added the To-do list experimental feature toggle.
+- Added the To-do list page.
+- Added the To-do list Task List UI in the Session Screen (To-do list must be toggled on). This UI will display your task list and be able to interact with it as if you're on the To-do List page.
+
+v.1.13 [Public Preview 2] (July 1, 2022)
+This version is the second Public Preview for DL. This update focuses mainly on the Settings page along with small UI changes and bug fixes.
+=== Additions ===
+- Added buttons that leads to the feedback form and the bug report form in Settings > Information > Version.
+- Added an option to hide toast notifications in Settings > Behaviors.
+- Added a confirmation box when deleting an item in Shortcut Editor.
+- Added a "How to use" button and help window in Shortcut Editor.
+- Added a button that links to the version list in the website through Settings > Launcher Update.
+- Added an option to display a greeting message in the home page on Settings > Behaviors > Greetings.
+- Added an option to display your name in the greeting in the home page on Settings > Behaviors > Greetings.
+- Added a Use of Content Guidelines button in Settings > Information > Version.
+- Added a How Data is Stored button in Settings > Information > Version.
+=== Changes ===
+- The Launcher Update Image is now clickable and will open a full-sized version of the image.
+- The Quick Search Bar will now show the search engine used in its placeholder text.
+- The "Add Item" subwindow in Shortcut Editor will now close when Ctrl + Space is pressed again.
+- Subwindows will now close when Esc is pressed.
+- The icon of the specific page will now display in the loading screen and as the favicon instead of the default logo.
+- The tab name will now change depending on the page you are on.
+- The "Shortcut" tab is now visible by default when first opening the "Add Item" subwindow in Shortcut Editor
+- Changed the design of the tab buttons in the "Add Item" subwindow.
+- Tweaked the layouts for the subwindows that mostly contains input boxes.
+- Fixed divider lines not following the "Divider Color" setting.
+- Fixed a bug where the date doesn't appear in the session screen when it is re-triggered using Ctrl + B.
+- Fixed a bug where the Category Navigation sidebar still appears even if the "Display a navigation bar in the home page that lets you easily jump to a specific category" setting is disabled.
+- Fixed a bug where the page greeting remains to display "Good Evening" regardless of the time of day.
+- Fixed console error regarding Shortcut Editor tabs.
+- Fixed console error regarding Battery Percentages.
+- Removed the "Notify if an update is available" checkbox in Settings > Behaviors.
+- Removed the extra description on the "Add Item" subwindow in Shortcut Editor.
+
+
+
+v.1.12.1 [Public Preview 1] (June 17, 2022)
+=== Additions ===
+- Added an update window that shows up when you first start up an updated version of the launcher.
+- Added a Light Mode preset.
+- Added an option to use the intended fonts for the launcher using Google Fonts (requires internet connection).
+- Added an "Enable Wallpaper" checkox in Settings > Appearance > Wallpaper.
+- Added fallback fonts in case that the default fonts aren't available.
+- Added an error screen that shows up when any of the important files are missing.
+=== Changes ===
+- The footer text no longer shows a counter.
+- The footer text is now dynamic, and will change depending on the version number.
+- The version strings on Settings > Information > Version is now dynamic, and will change depending on the version number.
+- The search bar no longer attempts a search when there is no query typed inside.
+- The Wi-Fi status icon textbox's animation has been made in parity with the textbox animation of the Page Navigation.
+- "Speedtest" button disappears on the Connection Status textbox if no internet connection is detected.
+- Page greeting now display "Good Afternoon" at the appropriate time.
+- Opening the Quick Search Bar will switch the focus to the text field.
+- Presets have been moved to its own category in Settings > Appearance > Presets.
+- Presets now also affect the text font and colors.
+- The "Dark Mode" preset now includes the text color.
+- Re-added the Changelog page in Settings > Information > Changelogs.
+- Re-added the Icon Brightness setting on Settings > Appearance > Colors.
+- Changed animations for subwindows.
+- Removed the "Notify if an update is available" textbox in Settings > Behaviors.
+- Removed all references of folders in Shortcut Editor.
+- Removed the Page Actions section on the Page Navigation Full Screen Menu on the Home Page.
+
+
+v.1.12 (June 10, 2022)
+This version is the first public preview for DL. Most aspects of the launcher has been updated into a new system, making it more flexible for future updates.
+=== What's new ===
+- An updated launcher design.
+- Added a new battery percentage indicator in the page header.
+- Added a new way of navigating through pages. A small menu will appear upon clicking the page title in the header that contains all of the pages the user can navigate into.
+- Added a new loading animation for the shortcut buttons and header buttons.
+- Added a new button in the header that will appear when a new update is available.
+- Added a new keyboard shortcut (Ctrl+Q) to quickly close/open all categories at the same time.
+- Added a new keyboard shortcut (Ctrl+Space) to open the item creation screen in "Shortcut Editor"
+- Added a new keyboard shortcut (Ctrl+B) to open the session screen.
+- Added a search bar on the home page's header for quick searches on the internet. The search engine it uses can be changed in the settings.
+- Added several new animations that runs on startup.
+- Added a "transition conversion" system that converts the user's existing links into the new system. This is automatic and can only be run once. This will also be the only version to have the functionality. [For early users only]
+- Added a toggleable search bar that can be accessed by pressing Ctrl+Shift. It appears on all pages.
+=== Changes ===
+- Updated the launcher menu layout when the screen is small enough.
+- Updated the loading screen.
+- Updated the launcher's fonts and now uses Raleway and Roboto.
+- Updated the toast notification system that will now stack up if multiple messages is made by the launcher.
+- Updated the "Settings" page to make it easier for the user to customize the launcher's color scheme (old configurations from 1.11 and below will not work).
+- Updated the stylesheet configuration format to cope with the new design changes.
+- Updated some of the launcher's icons.
+- The "Main.html" page is now isolated in the folder, while other files such as .css, .js and other assets have been put into their own folder to avoid user confusion.
+- The time and date had been moved to the page header, and hovering over the time will show the date.
+- The time now shows AM or PM, rather than an icon.
+- The sidebar is no longer present in the home page, and will now only appear on the pages that needs it.
+- The session screen can now be closed by clicking anywhere on the screen instead of clicking a button.
+- The Back To Top button had been moved to the bottom right of the screen and will appear whenever the user has scrolled down enough.
+- Removed the "Schedules" panel.
+- Removed the "Reminders" panel.
+=== Shortcut Editor ===
+A redesigned and overhauled shortcut edition system is now available in its first iteration. Shortcut Editor (SE) has two modes, Normal View, and Table View.
+Normal View
+- Normal View displays the shortcuts the same way it would be rendered on the home screen.
+- It displays clickable links.
+Table View
+- Displays the shortcuts in a table manner.
+- This view will let the user preview, edit, or delete a shortcut.
+- Table View displays three controls beside each category and shortcut.
+- The eye icon lets you view the shortcut link as if it is being clicked on Normal View.
+- The pencil icon lets you edit the category or shortcut properties.
+- The trashcan icon lets you delete a category or shortcut.
+=== Responsive Web Design ===
+- The main content container will now lock in 1000 pixels in width and will center on the screen if the screen is wide enough.
+- The time and date will now move to the launcher menu when the screen is small enough.
+=== Settings ===
+- The settings page had been reorganized in tabs on the sidebar.
+- The "Launcher update" window had been moved to its own tab in the settings page.
+- The "Information" page had been moved to the settings page.
+- Simplified the settings for the launcher appearance.
+- Added an updated and easier to use appearance customizer.
+- Added an option for a dark mode and light mode appearance preset.
+- Added an option to toggle blur effects.
+- Added an option to toggle some page header elements like the time & date, battery percentage, the search bar, the launcher update indicator, and the internet status indicator.
+- Added a way to change the launcher's wallpaper.
+- Added a "Launcher Behavior" section that contains toggles to customize some behaviors of the launcher.
+
+
+
+
+v.1.11 (February 2, 2022)
+This update focuses on making the launcher responsive on smaller screen sizes. This does not completely overhauls the overall design system of the launcher however, and most UI elements will remain to look the same. Smaller tweaks and additions are also introduced.
+=== Additions ===
+- Added a session screen when first opening the launcher. This will show up once everytime you run the launcher in the browser.
+- Added example elements on the "Settings" page to make it easier to see the changes in appearances.
+- Added an updated version of the "Periodic Table" page. This is a separate project from DL and can be downloaded separately. (As of this current update, the copy of Searchable Periodic Table that comes with 1.11 is a BETA version and is currently unfinished.)
+=== Changes ===
+- Several .css files have been merged back to "Page_Stylesheet.css".
+- Changed the copyright date to 2022.
+- Copyright now depends on a JS variable.
+- The date on the home page has been swapped from "date, day" to "day, date".
+- The clock now uses the 12-hour format, instead of the previously used 24-hour format.
+- Sidebar links no longer slides to the right when clicked, only slightly zooming out instead.
+- Removed the "Help on styling the launcher" page.
+- Removed the white outline on text input boxes when selected.
+- Removed the white outline on color input boxes.
+=== Fixes ===
+- Fixed the "Clock" page not following the appearance settings.
+- Fixed the text input box font not following the settings.
+- Fixed the loading screen background momentarily un-opaque before being fully opaque.
+- Fixed the "Brightness" value text not appearing in the "Settings" page unless the user clicks the slider.
+- Fixed the main content container being overlapped by the header menu when the screen is small enough.
+- Fixed the scaling issues of several text elements being too small or too big depending to the screen size.
+- Fixed the spacing of sidebar elements being different when it is opened and closed.
+- Fixed the category arrows clipping when the screen size is too big.
+- Fixed the horizontal scrollbar being thick.
+=== Responsive Web Design ===
+- Text and elements now use a fixed value rather than being relative to the screen size to fix scaling issues.
+- The sidebar will disappear when the screen is small enough and will become a fullscreen menu when opened via the toggle on the header.
+- Header menu buttons will move to the sidebar when the window size is less than 750px.
+- Font size of link buttons will become a little smaller when the window size is less than 750px.
+=== Experimental Features ====
+- Added a new "Custom Shortcut Library" page. In the public release, this will be the primary page.
+- Added a deletion feature for the custom shortcut system.
+- Added a "Delete custom link" button and window on the "Custom Shortcut Library" page.
+
+
+v.1.10 (December 16, 2021)
+The following updates including this one will focus more on functionality and making the user experience easier when it comes to customizing the launcher and adding new links. You will not see changes on the layout or UI, and even if there is, it wouldn't be that significant.
+This update focuses on customizing how the launcher looks much easier. You will be able to customize the launcher's appearance through the new "Settings" page.
+=== Additions ===
+- Added a new "Settings" page. This will let you change how your launcher look without modifying any file. If you have an existing configuration, you may need to re-enter them through the settings.
+- Added a new "Onboarding" page. You will be redirected here if you open "Main.html" in 1.10 for the first time.
+=== Changes ===
+- Re-added the animations when interacting with elements.
+- Call to action buttons are now made more obvious.
+- Favorites items now have accent colors.
+- Icons can now be toggled to be black or white to match with fit with bright backgrounds.
+- Removed small toggle icons in the "Schedules" section. The sections are also no longer toggleable.
+- Tweaked subwindows.
+- Logo has been changed to reflect the launcher's rename.
+- Elmer's Launcher has been renamed as Doodle Launcher.
+=== Technical Changes ===
+- For the first time ever, the launcher will now use the user's local storage to store settings.
+- The launcher now depends on the local storage to store settings and configurations.
+- If the settings file does not exist on the user's local storage, the launcher will create the file with the default values set. This will redirect you to "Onboarding.html".
+- Style configurations have been simplified and are now less redundant.
+- Several style configurations have been combined.
+- Several style configurations have been renamed.
+- Home page now refreshes every 2 hours. Other pages refreshes every hour.
+- Subwindows now depend on only two functions; one for opening and one for closing.
+- Added a new textbox system.
+=== Experimental Features ===
+- Added a custom shortcut creator subwindow.
+- Added a system that lets you create custom shortcuts in the launcher.
+- Local storage is now used to store launcher settings.
+
+*Quick note: There may be problems on how it handles local storage. Since this is a relatively new feature, this are in testing.
+
+
+v.1.9 (November 12, 2021)
+=== Additions ===
+- New fresh look and layout throughout the entire launcher.
+- New internet status icon located at the top-right corner of the screen.
+- New internet status alert that will appear when you're not connected to the internet.
+- New version notification system. The launcher will now notify you when a new update is available.
+- New way of downloading updates. Because the launcher will notify you when a new update is available, you have the option to download the new version directly from the launcher itself.
+- New grid layout system throughout the launcher. This makes everything more uniform in terms of layout and size.
+- New "Formula Card" page for Physics and Chemical formulas.
+- New icons for different purposes throughout the launcher.
+=== Changes ===
+- The default font will now be Product Sans and Roboto.
+- Modal windows will now have a background blur and dim behind them to separate it from the main content.
+- Modal windows will now have a closing animation instead of disappearing instantly.
+- The icon of the specific page will now appear when that page is loading, instead of the default logo.
+- The icon of the specific page will now become the page's favicon.
+- The sidebar will once again be collapsible in other pages.
+=== Responsive Web Design ===
+- Images will no longer cover the entire screen if the sidebar is collapsed
+=== Technical Changes ===
+- During load times, the launcher will detect your internet connectivity and will notify you on load when you're not connected.
+- The layout for link selection has been made easier to add new links in.
+- Links are no longer held inside tables, being in a grid layout instead, cutting down the code length.
+- Link containers are now in 'templates', and is easier adjusted inside the code.
+- A new system on collapsible menus is implemented; collapsing/expanding no longer requires its own unique function, instead now relying into one function and the element's object id that is used to identify and control subsequent elements.
+- Most page elements are now tied to the stylesheet configuration file.
+- Removed old code from both the .css and .js file.
+- Added a page template to easily add more pages if necessary.
+=== Experimental ===
+- Added a new breadcrumb navigation.
+- Added a new page in "Information" that will guide users into modifying the style of the launcher.
+- Loading screen can now be styled.
+- Loading screen fade animation has been changed from 0.7s to 0.5s.
+- Loading screen minimum waiting time has been changed from 2s to 3s.
+
+
+
+v.1.8 (October 11, 2021)
+=== Additions ===
+- New animations when interacting with the webpage.
+- New scrolling animation when expanding/collapsing the sidebar.
+- New animation when clicking buttons.
+- New animation when clicking links.
+- New "Back To Top" button on the top menu.
+- New "Changelog" window in the "Information" page.
+- New "Changelog" page that can be accessed from the "Information" page.
+=== Changes ===
+- Updated the "Information" and "Calendar of Events" pages.
+- Updated the "Clock" page to become more consistent with the new theme.
+- Changed the animation when opening a category.
+- The customizable css values in the "Information" page is now presented as a table.
+- Sidebar and category toggle are now inside the top menu, instead of floating above it.
+- Sidebar will no longer collapse on other pages than "Main.html".
+- A scrollbar will now appear when the sidebar contains too many links, instead of hiding them.
+- The page will now scroll smoothly when jumping from one category to another.
+- The page will now put the category clicked from the sidebar into the approximate middle of the screen instead of putting it at the very top.
+- Removed logo in the sidebar on other pages apart from the "Main.html" and replaced with a "Back to home" button and a "Back to top" button.
+=== Fixes ===
+- Fixed a bug where the tab opening animation doesn't play when toggling categories unless you click the category itself.
+=== Technical changes ===
+- Theme configurations have been moved to a separate css file called "Page_Stylesheet_Configurations.css" to prevent confusion to the user on what to change.
+- Added the following new tags: Sidebar-Clock-Color, Sidebar-Link-Color, Greeting-Text-Color, Category-Title-Color, Category-Sub-Title-Color, Category-Link-Color, Reminder-Box-Title-Font, Reminder-Box-Full-BGColor, Reminder-Box-OpenDocBtn, Notif-Title-Font, Notif-Title-Color, Notif-Sub-Title-Font, Notif-Sub-Title-Color, ClockPage-Font, ClockPage-Color, OtherPages-BGColor, and Element-Transition-Delay into the "Page_Stylesheet_Configurations.css" file. For more information, go to the "Information" page.
+=== Experimental ===
+- Home page now refreshes every hour to ensure that page contents are up to date.
+
+
+v.1.7 (October 1, 2021)
+=== Additions ===
+- Added a loading screen when you start up the webpage. 
+- Added a new System subcategory in the Others category. This contains system buttons.
+- Added a new Calendar of Events page. This contains events for months. To access, click "Calendar of Events" in the Schedules for the Month in Schedules.
+- Added a new Open in Google Docs button in the Reminders category.
+- Added a new way of customizing the launcher. You can now change the values of elements in its .css file easily. For more information, click "Information" in the System subcategory.
+- Added new Info page. This contains information, how-to-use, and more.
+=== Changes ===
+- Changed the scrollbar.
+- Changed the spacing between buttons a little bit.
+- RWD: Sidebar will now automatically go into compact mode when the window width is less than 682 pixels; it will now automatically go into expand mode if the window width is more than 682 pixels.
+- Default theme has been changed to be a little darker. It also changed and differentiated the color of the link buttons with fixed menu elements to differentiate from each other.
+- Sidebar will now have icons when closed instead of entirely disappearing. This makes jumping from one category to another possible even when the sidebar is collapsed.
+- Removed the blur effect on the header and sidebar due to performance issues.
+=== Fixes ===
+- Fixed subcategory arrow icons scaling.
+=== Technical changes ===
+- Version number is now controlled by a JavaScript function to be more consistent.
+- Rearranged the code inside the "Page_Stylesheet.css" file to be more organized.
+- Renamed different element classes to be more consistent with one another.
+- Employed the use of CSS variables to be customizable.
+- Cleaned up the folder and moved files into categorized folders. This makes it easier to navigate through the files and change files when needed.
+
+
+
+v.1.6 (September 22, 2021)
+- Added a blur effect on the header, sidebar, and notification box (experimental).
+- Added a wallpaper background (to change the wallpaper, replace the images in the Background folder with the same file name and is in png format).
+- Added an expand button above the reminders box to expand it.
+- Added Cations and Anions button to the educational section on Other links
+- Visual fixes.
+- Changed the sidebar clock box display to flex.
+- Changed the sidebar link box display to flex.
+- Changed the top bar display to flex.
+- Changed sidebar texts to be consistent with the category titles.
+- Fixed category arrows not changing when clicking collapse all.
+- Fixed category arrows alignment problem.
+- Fixed category icon alignment problem.
+- Moved the copyright text to the bottom of the page.
+- Removed the back to top button on the sidebar. To go back to the top, click the top menu box.
+
+
+
+v.1.5 (September 17, 2021)
+- Added subcategories, categories inside categories that arranges similar links.
+- Added new "Quick Lookup" category. This contains Miriam Webster Dictionary and Thesaurus, APA Citation Maker, Scribbr, and Google.com.
+- Added a notification that notifies you (inside the window) to take your attendance during class periods.
+- Added a button that lets you open or close the sidebar.
+- Added a button that lets you expand/collapse all of the categories at once.
+- Added a back to top button that delivers you to the top of the page when clicked.
+- Added a small fade animation when you expand a category/subcategory to show what has shown up.
+- The greeting box no longer expand/collapse all of the categories when clicked.
+- Combined the clock and sidebar to form one sidebar.
+
+v.1.4 (September 13, 2021)
+- Added a separate announcement element for inside the schedules category.
+- Added a new reminders category. This is pulled from a Google Docs file and requires an internet connection to access. 
+- Added a minor fading animation when being loaded.
+- Added category icons.
+- Added a favicon for both the main and clock page replacing the default paper icon to be more noticeable.
+- Categories are now collapsible. Collapse/expand categories by clicking on them.
+- Greeting box on the top of the page now collapse/expand categories when clicked.
+- Fixed a cursor bug in the greeting box where it shows the element as clickable even if it's not.
+- Fixed a horizontal misalignment on the sidebar boxes when the window is resized.
+- Replaced the top menu on the clock page with a simple back button that appears when hovered.
+- Clock text on the clock page no longer glows when being hovered.
+- Schedules no longer appear in the clock page.
+- Repeatedly clicking on elements no longer highlights them, as most elements are now clickable.
+- Clock page title updated to be consistent with the main page title.
+
+
+
+v.1.3 (September 7, 2021)
+- New look
+- Added a sidebar with the clock on the top portion and the jump buttons on the bottom portions
+- Introducing jump links: Navigate the page easier by click jump links to deliver you to that specific section of the page
+- Schedule images are now linked to a Google Drive document and will update remotely whenever needed; however, you need to be connected to the internet while it is loaded in order for it to be fetched into the home page.
+- Unavailable or closed image links will now disappear from the home page, removing the ugly empty boxes when it fails to load
+- Unified font family to Product Sans
+- Removed top menu bar
+Known problems on v.1.3:
+- Sidebar does not resize properly when window gets resized; recommended to open at full size with a minimum resolution of (1280x720);
+- Some text items does not resize properly when window gets resized; recommended to open at full size with a minimum resolution of (1280x720);
+
+
+v.1.2 (September 5, 2021)
+- Added indicator icon on the home page to indicate whether it is day or night
+- Added the day and current date on the top menu
+- Added glowing effect on clickable items to clearly differentiate them from unclickable items
+
+v.1.1 (August 26, 2021)
+- Added JavaScript .js file to folder
+- Added top bar now displaying version
+- Added 24-hour clock on the top bar
+- Credits text on the bottom of the page now brings to website
+- Hovering to non-clickable items now not change the cursor into an "I" bar
+- Welcome text now changes to "Good Morning", "Good Afternoon", and "Good Evening" depending on computer time
+- Every 11:45, 12:30, 1:30, 2:30, 3:30, 4:30, a notification sound will play signalling the end of the class.
+- Clicking on the schedule image now brings up a full window image
+- Clicking on the version number now shows the changelog file
+
+v.1.0 (August 25, 2021)
+- Added basic features

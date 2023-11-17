@@ -1,0 +1,369 @@
+/*
+	DL_Stylesheet_Reference.css
+	This file contains all the default css variable configurations for Doodle Launcher
+*/
+
+:root{
+	--CL-Clock-Text-Font: "Dustfine";
+	--CL-Clock-Text-Size: 80vh;
+	--CL-Clock-Text-Color-Hour: "black";
+	--CL-Clock-Text-Color-Minutes: "black";
+	--CL-Clock-Background-Color: "#27038a";
+	--CL-Clock-Background-Gradient-Old: "linear-gradient(45deg, #27038a 0%, #27038a 100%)";
+	--CL-Clock-Background-Gradient-New: "linear-gradient(45deg, #27038a 0%, #27038a 100%)";
+	--Debug-ElementOutline: none;
+	--BG-Img-Wallpaper-Main: url(../Assets/Background/BG_SplashScreen.jpg);
+	--BG-Img-Wallpaper-Clock: url(../Assets/Background/BG_SplashScreen.jpg);
+	--BG-Img-Splash: url(../Assets/Background/BG_SplashScreen.jpg);
+	
+	--Element-Transition-Delay: 0.4s;
+	--Element-BoxShadow: 0cm 0cm 0.28218705792108cm 0.03527338224013cm rgba( 0, 0, 0, 0.50); 
+	--Element-BoxShadow-Hover: 0cm 0cm 0.28218705792108cm 0.03527338224013cm  var(--Accent-Color-Hover); 
+	--Element-Icon-Brightness: brightness(1);
+	--Element-BackdropBlur: blur(10px);
+	--BG-Color-Opacitated: rgba(28, 28, 28, 0.50);
+
+	--Text-Font-Primary: Raleway, "Trebuchet MS", "Arial";
+	--Text-Font-Secondary: Roboto, "Arial", "Helvetica";
+	--Text-Font-Numbers: Roboto, "Arial", "Helvetica";
+	--Text-Color: white;
+	
+	--Accent-Color: #4a27e7;
+	--Accent-Color-Hover: #5835f3;
+	--Accent-Color-Focus: #4a27e7;
+
+	--BG-Color-Scrollbar: transparent;
+	--BG-Color-Scrollbar-Thumb: var(--Accent-Color);
+	--BG-Color-Scrollbar-Thumb-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Selection: var(--Accent-Color);
+
+	--BG-Color-General: #171010;
+	--BG-Color-General-Menus: #202020;
+	--BG-Color-LoadingScreen: #171010;
+	--BG-Color-LoadingScreen-Splash-IconSpace: #251b1b;
+	--BG-Color-LoadingScreen-Splash-NameSpace: #303030;
+	--BG-Color-Hover: #242424;
+	--BG-Color-Focus: #22116d;
+	--BG-Color-Overlay-Header: #161616;
+	--BG-Color-Overlay-Sidebar: #161616;
+	--BG-Color-Overlay-Ribbon: #161616;
+	--BG-Color-Overlay-CornerButtons: var(--Accent-Color);
+	--BG-Color-Overlay-CornerButtons-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Button-General: #1E1E24;
+	--BG-Color-Button-General-Hover: var(--BG-Color-Hover);
+	--BG-Color-Button-General-Focus: var(--BG-Color-Focus);
+	--BG-Color-Button-General-Accent: #111114;
+	--BG-Color-Button-General-Accent-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Button-General-Accent-Focus: var(--Accent-Color-Focus);
+	--BG-Color-Button-ToggleIndicator-Activated: var(--Accent-Color); 
+	--BG-Color-Button-ToggleIndicator-Deactivated: var(--BG-Color-Button-General); 
+	--BG-Color-Button-Dropdown: var(--BG-Color-Button-General); 
+	--BG-Color-Button-Dropdown-Hover: var(--BG-Color-Button-General-Hover);
+	--BG-Color-Button-Dropdown-Active: rgb(54, 54, 54);
+	--BG-Color-Button-Dropdown-Accent: var(--Accent-Color);
+	--BG-Color-Button-Dropdown-Accent-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Button-Dropdown-Accent-Active: var(--Accent-Color-Focus);
+	--BG-Color-Button-Dropdown-List: var(--BG-Color-Button-General);
+	--BG-Color-Button-Dropdown-List-Item-Hover: #282830;
+	--BG-Color-Subwindows: #1a1a1a;
+	--BG-Color-Input: var(--BG-Color-Button-General);
+	--BG-Color-Input-Hover: var(--BG-Color-Button-General-Hover);
+	--BG-Color-Input-Focus: var(--BG-Color-Button-General-Focus);
+	--BG-Color-Input-Accent: var(--Accent-Color);
+	--BG-Color-Input-Accent-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Input-Accent-Focus: var(--Accent-Color-Active);
+	--Color-Dividers: #303030;
+	--Color-Borders: var(--Color-Dividers);
+	--Color-Borders-Hover: var(--Accent-Color-Hover);
+	--Color-Borders-Focus: var(--Accent-Color-Focus);
+}
+
+:legacy{
+	/* Root values. This will be loaded when loadSettings() is triggered. */
+	--Debug-ElementOutline: none;
+	/*--BG-WallpaperImg: url(../Assets/Background/default_New.png);*/
+	--BG-WallpaperImg: none;
+	
+	--Element-Transition-Delay: 0.3s; /*Delay on transition */
+	--Element-BoxShadow: 0cm 0cm 0.28218705792108cm 0.03527338224013cm rgb( 0, 0, 0, 0.50); /*Box shadow property */
+	--Element-BoxShadow-Hover:0cm 0cm 0.28218705792108cm 0.03527338224013cm var(--Accent-Color-Hover);
+	--Element-BoxShadow-Subwindow-TitleBar: 0px 5px 10px 0px rgb( 0, 0, 0, 0.25); /*Box shadow property for subwindow title bars*/
+	
+	--Element-Icon-Brightness: brightness(1);
+	--Element-Icon-Brightness-Focus: brightness(0);
+	--Element-BackdropBlur: blur(10px);
+	
+	--Text-Color: white; /* Global text color */
+	--Text-Font-Primary: Raleway; /* Titles */
+	--Text-Font-Secondary: Roboto; /* Paragraphs, list items */
+	--Text-Font-Numbers: Roboto; /* For elements mostly composed of numbers */
+	
+	
+	
+	--Accent-Color: #cf5520; /* Page's accent color Old: #9f4f52*/ 
+	--Accent-Color-Hover: #a03d13; /* Accent color when hovered Old: #9f4f52*/
+	--BGColor-General: #171010; /* BG color for everything that does not fall on the categories below */
+	--BGColor-Hover: #242424; /* BG color for hovered items */
+	--BGColor-Menus: #191919; /* Sidebar, Header */
+	--BGColor-Subwindows: #292929; /* Add item, wallpaper selection */
+	--BGColor-Dropdowns: #171010; /* Page Navigation, internet status, dropdown inputs */
+	--BGColor-Opacitated: rgba(28, 28, 28, 0.5); /* For elements with blur effects */
+	--BGColor-ShortcutButtons: #1E1E24; /* Shortcut buttons */
+	--BGColor-Buttons: #1E1E24; /* General buttons, subwindow buttons */
+	--BGColor-Input: #121212; /* Input textboxes, dropdowns */
+	--Color-Dividers: #282830; /* Divider colors */
+}
+
+:ELMSUI{
+	
+}
+
+:elmsUI{
+	/*--BG-WallpaperImg: url(../Assets/Background/default_New.png);*/
+	--BG-WallpaperImg: url(../Assets/Background/city.jpg);
+	
+	--Element-Transition-Delay: 0.3s; /*Delay on transition */
+	--Element-BoxShadow: 0cm 0cm 0.28218705792108cm 0.03527338224013cm rgb( 0, 0, 0, 0.50); /*Box shadow property */
+	--Element-BoxShadow-Hover:0cm 0cm 0.28218705792108cm 0.03527338224013cm var(--Accent-Color-Hover);
+	
+	--Element-Icon-Brightness: brightness(1);
+	--Element-Icon-Brightness-Focus: brightness(0);
+	--Element-BackdropBlur: blur(10px);
+	
+	/* General text */
+	--General-Font-Primary: Raleway;
+	--General-Font-Secondary: Roboto;
+	--General-Font-Tertiary: Roboto;
+	--General-Font-Numbers: Roboto;
+	
+
+	--Text-Color: white; /* Global text color */
+	--Text-Font-Primary: Raleway; /* Titles */
+	--Text-Font-Secondary: Roboto; /* Paragraphs, list items */
+	--Text-Font-Numbers: Roboto; /* For elements mostly composed of numbers */
+	
+	
+	
+	--Accent-Color: #cf5520; /* Page's accent color Old: #9f4f52*/ 
+	--Accent-Color-Hover: #a03d13; /* Accent color when hovered Old: #9f4f52*/
+	--BGColor-General: #171010; /* BG color for everything that does not fall on the categories below */
+	
+	/* General */
+	--
+	
+	/* Header */
+	--Header-Container: ;
+	--Header-Divider: ;
+	--Header-Button: ;
+	--Header-Button-Hover: ;
+	--Header-Button-Click: ;
+	--Header-Menu: ;
+	--Header-Menu-Button: ;
+	--Header-Menu-Button-Hover: ;
+	--Header-Menu-Button-Click: ;
+	--Header-Menu-Button-Accent: ;
+	--Header-Menu-Button-Accent-Hover: ;
+	--Header-Menu-Button-Accent-Click: ;
+	--Header-Menu-Button-Glow: ;
+	--Header-Menu-Button-Glow-Hover: ;
+	--Header-Menu-Button-Glow-Click: ;
+	
+	/* Sidebar */
+	--Sidebar-Container: ;
+	--Sidebar-Button-Icon: ;
+	--Sidebar-Button-Icon-Hover: ;
+	--Sidebar-Button-Icon-Click: ;
+	--Sidebar-Button-Name: ;
+	--Sidebar-Button-Name-Hover: ;
+	--Sidebar-Button-Name-Click: ;
+	
+	/* Subwindow */
+	--Subwindow-Container: ;
+	--Subwindow-Title: ;
+	--Subwindow-Title-Close: ;
+	--Subwindow-Title-Close-Hover: ;
+	--Subwindow-Title-Divider: ;
+	--Subwindow-Button-Primary: ;
+	--Subwindow-Button-Primary-Hover: ;
+	--Subwindow-Button-Primary-Click: ;
+	--Subwindow-Button-Primary-Accent: ;
+	--Subwindow-Button-Primary-Accent-Hover: ;
+	--Subwindow-Button-Primary-Accent-Click: ;
+	--Subwindow-Button-Primary-Glow: ;
+	--Subwindow-Button-Primary-Glow-Hover: ;
+	--Subwindow-Button-Primary-Glow-Click: ;
+	--Subwindow-Button-Secondary: ;
+	--Subwindow-Button-Secondary-Hover: ;
+	--Subwindow-Button-Secondary-Click: ;
+	--Subwindow-Button-Secondary-Accent: ;
+	--Subwindow-Button-Secondary-Accent-Hover: ;
+	--Subwindow-Button-Secondary-Accent-Click: ;
+	--Subwindow-Button-Secondary-Glow: ;
+	--Subwindow-Button-Secondary-Glow-Hover: ;
+	--Subwindow-Button-Secondary-Glow-Click: ;
+	
+	/* Loading Screen */
+	--LoadingScreen-Container: ;
+	--LoadingScreen-Loader: ;
+	
+	/* Scrollbar */
+	--Scrollbar-Container: ;
+	--Scrollbar-Scroll: ;
+	--Scrollbar-Scroll-Hover: ;
+	--Scrollbar-Scroll-Click: ;
+	
+	/* Input */
+	--Input-Dropdown-Container: ;
+	--Input-Dropdown-Hover: ;
+	--Input-Dropdown-Opened: ;
+	--Input-Dropdown-Accent: ;
+	--Input-Dropdown-Accent-Hover: ;
+	--Input-Dropdown-Accent-Opened: ;
+	--Input-Dropdown-Glow: ;
+	--Input-Dropdown-Glow-Hover: ;
+	--Input-Dropdown-Glow-Opened: ;
+	--Input-Dropdown-Choices-Container: ;
+	--Input-Dropdown-Choices-Hover: ;
+	
+	--Input-Toggle-Container: ;
+	--Input-Toggle-Hover: ;
+	--Input-Toggle-Click: ;
+	--Input-Toggle-Indicator-Enabled: ;
+	--Input-Toggle-Indicator-Disabled: ;
+	
+	--Input-Text-Container: ;
+	--Input-Text-Container-Hover: ;
+	--Input-Text-Container-Focus: ;
+	--Input-Text-Container-Accent: ;
+	--Input-Text-Container-Accent-Hover: ;
+	--Input-Text-Container-Accent-Focus: ;
+	--Input-Text-Container-Glow: ;
+	--Input-Text-Container-Glow-Hover: ;
+	--Input-Text-Container-Glow-Focus: ;
+	
+	/* Horizontal Tab */
+	--HorizontalTab-Container: ;
+	--HorizontalTab-Hover: ;
+	--HorizontalTab-Click: ;
+	--HorizontalTab-Accent: ;
+	--HorizontalTab-Accent-Hover: ;
+	--HorizontalTab-Accent-Click: ;
+	--HorizontalTab-Border: ;
+	--HorizontalTab-Border-Hover: ;
+	--HorizontalTab-Border-Click: ;
+	
+	/* List Items */
+	--ListItem-Container: ;
+	--ListItem-Hover: ;
+	--ListItem-Click: ;
+	--ListItem-Action: ;
+	--ListItem-Action-Hover: ;
+	--ListItem-Action-Click: ;
+	
+	/* Shortcut Buttons */
+	--Button-Shortcut-Container: ;
+	--Button-Shortcut-Hover: ;
+	--Button-Shortcut-Click: ;
+	--Button-Shortcut-Accent: ;
+	--Button-Shortcut-Accent-Hover: ;
+	--Button-Shortcut-Accent-Click: ;
+	--Button-Shortcut-Glow: ;
+	--Button-Shortcut-Glow-Hover: ;
+	--Button-Shortcut-Glow-Click: ;
+	
+	/* Buttons */
+	--Button-General-Container: ;
+	--Button-General-Hover: ;
+	--Button-General-Click: ;
+	--Button-General-Accent: ;
+	--Button-General-Accent-Hover: ;
+	--Button-General-Accent-Click: ;
+	--Button-General-Glow: ;
+	--Button-General-Glow-Hover: ;
+	--Button-General-Glow-Click: ;
+	
+	
+	
+	--Color-Accent-Sidebar: #171010;
+	--Color-BG-Sidebar: #171010;
+	--Color-Text-Sidebar: #171010;
+	--Color-Divider-Sidebar: #171010;
+	--Color-Buttons-Sidebar: #171010;
+	--Color-Hover-Sidebar: #171010;
+	--Color-Focus-Sidebar: #171010;
+	--Color-Input-Sidebar: #171010;
+	--Color-IconBrightness-Sidebar: brightness(1);
+	
+	
+	
+	
+	--BGColor-Hover: #242424; /* BG color for hovered items */
+	--BGColor-Menus: #171010; /* Sidebar, Header */
+	--BGColor-Subwindows: #292929; /* Add item, wallpaper selection */
+	--BGColor-Dropdowns: #171010; /* Page Navigation, internet status, dropdown inputs */
+	--BGColor-Opacitated: rgba(28, 28, 28, 0.5); /* For elements with blur effects */
+	--BGColor-ShortcutButtons: #1E1E24; /* Shortcut buttons */
+	--BGColor-Buttons: #1E1E24; /* General buttons, subwindow buttons */
+	--BGColor-Input: #121212; /* Input textboxes, dropdowns */
+	--Color-Dividers: #282830; /* Divider colors */
+}
+
+:darkmode{
+	/* Root values. This will be loaded when loadSettings() is triggered. */
+	--BG-WallpaperImg: url(../Assets/Background/gardenofwords.jpg);
+	--Element-BackdropBlur: blur(10px);
+	--Element-Transition-Delay: 0.3s; /*Delay on transition */
+	--Element-BoxShadow: 0cm 0cm 0.28218705792108cm 0.03527338224013cm rgb( 0, 0, 0, 0.50); /*Box shadow property */
+	--Element-Icon-Brightness: brightness(1);
+	--Element-Icon-Brightness-Focus: brightness(0);
+	
+	--Text-Color: white; /* Global text color */
+	--Text-Font-Primary: Raleway; /* Titles */
+	--Text-Font-Secondary: Roboto; /* Paragraphs, list items */
+	--Text-Font-Numbers: Roboto; /* For elements mostly composed of numbers */
+	
+	
+	
+	--Accent-Color: #9f4f52; /* Page's accent color */
+	--Accent-Color-Hover: #9f4f52; /* Accent color when hovered */
+	--BGColor-General: #171010; /* BG color for everything that does not fall on the categories below */
+	--BGColor-Hover: #242424; /* BG color for hovered items */
+	--BGColor-Menus: #171010; /* Sidebar, Header */
+	--BGColor-Subwindows: #292929; /* Add item, wallpaper selection */
+	--BGColor-Dropdowns: #171010; /* Page Navigation, internet status, dropdown inputs */
+	--BGColor-Opacitated: rgba(28, 28, 28, 0.5); /* For elements with blur effects */
+	--BGColor-ShortcutButtons: #1E1E24; /* Shortcut buttons */
+	--BGColor-Buttons: #1E1E24; /* General buttons, subwindow buttons */
+	--BGColor-Input: #121212; /* Input textboxes, dropdowns */
+	--Color-Dividers: #282830; /* Divider colors */
+}
+
+:lightmode{
+	/* Root values. This will be loaded when loadSettings() is triggered. */
+	/*--BG-WallpaperImg: url(../Assets/Background/lightmode.jpg);*/
+	
+	--Element-Transition-Delay: 0.3s; /*Delay on transition */
+	--Element-BoxShadow: 0cm 0cm 0.28218705792108cm 0.03527338224013cm rgb( 0, 0, 0, 0.50); /*Box shadow property */
+	--Element-Icon-Brightness: brightness(1);
+	--Element-Icon-Brightness-Focus: brightness(0);
+	--Element-BackdropBlur: blur(10px);
+	--Text-Color: white; /* Global text color */
+	--Text-Font-Primary: Raleway; /* Titles */
+	--Text-Font-Secondary: Roboto; /* Paragraphs, list items */
+	--Text-Font-Numbers: Roboto; /* For elements mostly composed of numbers */
+	
+	
+	
+	--Accent-Color: #4287f5; /* Page's accent color */
+	--Accent-Color-Hover: #4287f5; /* Accent color when hovered */
+	--BGColor-General: #9ec3ff; /* BG color for everything that does not fall on the categories below */
+	--BGColor-Hover: #80b0ff; /* BG color for hovered items */
+	--BGColor-Menus: #f5f5f5; /* Sidebar, Header */
+	--BGColor-Subwindows: #6a89bd; /* Add item, wallpaper selection */
+	--BGColor-Dropdowns: #6e6e6e; /* Page Navigation, internet status, dropdown inputs */
+	--BGColor-Opacitated: rgba(122, 157, 214, 0.5); /* For elements with blur effects */
+	--BGColor-ShortcutButtons: #629af5; /* Shortcut buttons */
+	--BGColor-Buttons: #629af5; /* General buttons, subwindow buttons */
+	--BGColor-Input: #445b80; /* Input textboxes, dropdowns */
+	--Color-Dividers: #454545; /* Divider colors */
+}

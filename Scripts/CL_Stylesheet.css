@@ -1,0 +1,225 @@
+@font-face {
+	font-family: "Raleway";
+	src: url("../Assets/Fonts/Raleway-ExtraBold.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: "Roboto";
+	src: url("../Assets/Fonts/Roboto-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: "Dustfine";
+	src: url("../Assets/Fonts/Dustfine-1Gn42.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: "Galderglynn_Titling";
+	src: url("../Assets/Fonts/galderglynn\ titling\ bl.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: "Lemon_Milk";
+	src: url("../Assets/Fonts/LEMONMILK-Bold.otf") format("opentype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: "Minecraft_Ten";
+	src: url("../Assets/Fonts/Minecraft-Ten.otf") format("opentype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: "Product_Sans";
+	src: url("../Assets/Fonts/Product\ Sans\ Bold.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.Clock_Main{
+    margin: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #27038a;
+    
+    z-index: 100;
+    user-select: none;
+    transition: 30s;
+}
+
+.Clock_Main[data-id="Gradient_Transition_Start_OldToNew"]{
+    animation-name: Gradient_Transition_Start_OldToNew;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+}
+
+.Clock_Main[data-id="Gradient_Transition_Start_NewToOld"]{
+    animation-name: Gradient_Transition_Start_NewToOld;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes Gradient_Transition_Start_OldToNew {
+    0% {
+        background: var(--CL-Clock-Background-Gradient-Old);
+    }
+    100% {
+        background: var(--CL-Clock-Background-Gradient-New);
+    }
+}
+
+@keyframes Gradient_Transition_Start_NewToOld {
+    0% {
+        background: var(--CL-Clock-Background-Gradient-New);
+    }
+    100% {
+        background: var(--CL-Clock-Background-Gradient-Old);
+    }
+}
+
+.Clock_Main_Content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    pointer-events: none;
+}
+
+.Clock_Main_Text_Hours{
+    font-family: var(--CL-Clock-Text-Font);
+    font-size: var(--CL-Clock-Text-Size);
+    color: var(--CL-Clock-Text-Color-Hour);
+    transition: color 30s;
+    pointer-events: all;
+}
+
+.Clock_Main_Text_Blinker{
+    font-family: var(--CL-Clock-Text-Font);
+    font-size: var(--CL-Clock-Text-Size);
+    transition: color 30s;
+    pointer-events: all;
+}
+
+.Clock_Main_Text_Minutes{
+    font-family: var(--CL-Clock-Text-Font);
+    font-size: var(--CL-Clock-Text-Size);
+    color: var(--CL-Clock-Text-Color-Hour);
+    transition: color 30s;
+    pointer-events: all;
+}
+
+.Clock_Main_SettingsButton_Container{
+    width: 100%;
+    height: 115px;
+    position: absolute;
+    z-index: 50;
+    /* background-color: aqua; */
+}
+
+.Clock_Main_SettingsButton_Container:hover > .Clock_Main_SettingsButton{
+    opacity: 100%;
+}
+
+.Clock_Main_SettingsButton{
+    opacity: 0%;
+    transition: var(--Element-Transition-Delay);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 75px;
+    height: 75px;
+    background-color: var(--BG-Color-Button-General);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.Clock_Main_SettingsButton:hover{
+    background-color: var(--BG-Color-Button-General-Hover);
+}
+
+.Clock_Main_SettingsButton:active{
+    background-color: var(--BG-Color-Button-General-Focus);
+}
+
+.Clock_Main_SettingsButton_Icon{
+    width: 51px;
+    height: 51px;
+    padding: 8px;
+}
+
+.Clock_Settings_FontSelector{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+}
+
+.Clock_Settings_FontSelector_Item{
+    font-size: 50px;
+    margin: 10px;
+    width: 250px;
+    background-color: var(--BG-Color-Button-General);
+    border: solid var(--Color-Borders);
+    text-align: center;
+    color: white;
+    user-select: none;
+    cursor: pointer;
+}
+
+.Clock_Settings_FontSelector_Item:nth-child(1){
+    font-family: Raleway;
+}
+
+.Clock_Settings_FontSelector_Item:nth-child(2){
+    font-family: Roboto;
+}
+
+.Clock_Settings_FontSelector_Item:nth-child(3){
+    font-family: Dustfine;
+}
+
+.Clock_Settings_FontSelector_Item:nth-child(4){
+    font-family: Galderglynn_Titling;
+}
+
+.Clock_Settings_FontSelector_Item:nth-child(5){
+    font-family: Lemon_Milk;
+}
+
+.Clock_Settings_FontSelector_Item:nth-child(6){
+    font-family: Minecraft_Ten;
+}
+
+.Clock_Settings_FontSelector_Item:nth-child(7){
+    font-family: Product_Sans;
+}
+
+.Clock_Settings_Input{
+    max-width: 500px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.Clock_Settings_Input_Text{
+    font-family: var(--Text-Font-Secondary);
+    color: var(--Text-Color);
+}

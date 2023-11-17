@@ -1,0 +1,15 @@
+By using Doodle Launcher, you agree to everything in this file.
+By using Doodle Launcher, you will be able to do the following:
+	- Create shortcuts by copying the link and adding it in the shortcut editor. 
+	- Use the launcher as a library to your frequently used websites.
+By using Doodle Launcher, you will not be able to do the following:
+	- Modify the source code used by the launcher to inject monetized content. This includes .html, .js, and .css files.
+	- Distribute/sharing the program/zip file to other sites other than the official download page.
+By using Doodle Launcher, you agree and understand the following:
+	- Your personal information is your responsibility; and you must not include any sensitive information into any input fields in the launcher; and that potential data/information leaks due to your failure to follow this rule is none of Elmer F.'s fault.
+	- Your device's digital security is your responsibility; all the links you enter in the launcher and open through the launcher is your responsibility; any security threats and malware contained within the websites you visit using the launcher is your responsibility.
+	- The contents of the websites you visit through the launcher is your responsibility; any malicious content, misinformation, sensitive information, graphic imagery, and more that is contained within the websites you visit using the launcher is your responsibility.
+	- Your device's specifications may affect the launcher's performance and load times.
+	- The launcher does not collect ANY data or information for monetized reasons; all of the data you enter is contained within your browser's local storage.
+	- By using the Public Beta Release, you are entitled to give valid and constructive criticism, comments, and suggestions for the project's improvement.
+	- By using the Public Beta Release, you are aware that bugs may occur and that you are entitled to report the bug to Elmer F.

@@ -1,0 +1,254 @@
+/*
+	DL_Stylesheet_Animations.css
+	This file contains all the preset animations for Doodle Launcher
+*/
+
+@keyframes open_LoadingScreen_Elements{
+	from {opacity: 0%;}
+	to {opacity: 100%;}
+}
+
+@keyframes close_SessionScreen{
+	from {opacity: 100%; transform: translateY(0%);}
+	to {opacity: 0%; transform: translateY(-50%);}
+}
+
+@keyframes open_SessionScreen{
+	from {opacity: 0%; transform: translateY(-50%);}
+	to {opacity: 100%; transform: translateY(0%);}
+}
+
+
+@keyframes open_Textbox{
+	from {transform: translateY(-30px); opacity: 0%; max-height: 0%; overflow-y: none;}
+	to {transform: translateY(0px); opacity: 100%; overflow-y: auto;}
+}
+
+@keyframes close_Textbox{
+	from {transform: translateY(0px); opacity: 100%;}
+	to {transform: translateY(-30px); opacity: 0%;}
+}
+
+@keyframes open_Textbox_Contents{
+	from {transform: translateY(-10px); opacity: 0%;}
+	to {transform: translateY(0px); opacity: 100%;}
+}
+
+@keyframes close_Textbox_Contents{
+	from {opacity: 100%;}
+	to {opacity: 0%;}
+}
+
+@keyframes opening_Navigator_Container_Normal{
+	from {transform: translateY(-30px); opacity: 0%;}
+	to {transform: translateY(0px); opacity: 100%;}
+}
+
+@keyframes closing_Navigator_Container_Normal{
+	from {transform: translateY(0px); opacity: 100%;}
+	to {transform: translateY(-30px); opacity: 0%;}
+}
+
+@keyframes opening_Navigator_Container_Full{
+	from {transform: translateY(-30px); opacity: 0%; bottom: 200px;}
+	to {transform: translateY(0px); opacity: 100%; bottom: 20px;}
+}
+
+@keyframes closing_Navigator_Container_Full{
+	from {transform: translateY(0px); opacity: 100%; bottom: 20px;}
+	to {transform: translateY(-30px); opacity: 0%; bottom: 200px;}
+}
+
+@keyframes categoryNavigation_CategoryClicked{
+	0% {background-color: rgba(255, 255, 255, 0.0);}
+	50% {background-color: rgba(255, 255, 255, 0.5);}
+	100% {background-color: rgba(255, 255, 255, 0.0);}
+}
+@keyframes categoryNavigation_CategoryClicked_reset{
+	from {background-color: rgba(255, 255, 255, 0.0);}
+	to {background-color: rgba(255, 255, 255, 0.0);}
+}
+
+@keyframes tabOpening{
+	from {opacity: 0%; transform: translateY(-30px);}
+	to {opacity: 100%; transform: translateY(0px);}
+}
+
+@keyframes tabClosing{
+	from {opacity: 100%; transform: translateY(0px);}
+	to {opacity: 0%; transform: translateY(-10px);}
+}
+
+
+@keyframes opening_HeaderButtons{
+	0% { transform: translateY(-100%); }
+	50% { transform: translateY(10px);}
+	100% { transform: translateY(0px);}
+}
+
+@keyframes opening_ShortcutItems{
+	from {opacity: 0%; transform: translateY(-30px);}
+	to {opacity: 100%; transform: translateY(0px);}
+}
+
+@keyframes opening_SidebarItems{
+	0% { transform: translateX(-100%); }
+	50% { transform: translateX(10px);}
+	100% { transform: translateX(0px);}
+}
+
+@keyframes opening_Category{
+	from {opacity: 0%; transform: translateX(30px);}
+	to {opacity: 100%; transform: translateX(0px);}
+}
+
+@keyframes opening_Subwindow{
+	from {opacity: 0%; transform: scale(0.95);}
+	to {opacity: 100%; transform: scale(1);}
+}
+
+@keyframes closing_Subwindow{
+	from {opacity: 100%; transform: scale(1);}
+	to {opacity: 0%; transform: scale(0.95);}
+}
+
+@keyframes opening_ToastNotif{
+	from {transform: translateX(-100%);}
+	to {transform: translateX(0%);}
+}
+
+@keyframes closing_ToastNotif{
+	from {transform: translateX(0%);}
+	to {transform: translateX(-100%);}
+}
+
+@keyframes opening_pageTab_Upwards{
+	from {opacity: 0%; transform: translateY(-50px);}
+	to {opacity: 100%; transform: translateY(0px);}
+}
+
+@keyframes opening_pageTab_Downwards{
+	from {opacity: 0%; transform: translateY(50px);}
+	to {opacity: 100%; transform: translateY(0px);}
+}
+
+@keyframes closing_pageTab_Upwards{
+	from {opacity: 100%; transform: translateY(0px); max-height: 0%;}
+	to {opacity: 0%; transform: translateY(-50px); max-height: 0%;}
+}
+
+@keyframes closing_pageTab_Downwards{
+	from {opacity: 100%; transform: translateY(0px); max-height: 0%;}
+	to {opacity: 0%; transform: translateY(50px); max-height: 0%;}
+}
+
+@keyframes opening_Dropdown{
+	from {max-height: 0px; opacity: 0%; transform: translateY(-30px);}
+	to {max-height: 500px; opacity: 100%; transform: translateY(0px);}
+}
+
+@keyframes closing_Dropdown{
+	from {max-height: 500px; opacity: 100%; transform: translateY(0px);}
+	to {max-height: 0px; opacity: 0%; transform: translateY(-30px);}
+}
+
+@keyframes opening_Dropdown_Items{
+	from {padding-top: 0px; padding-bottom: 0px;}
+	to {padding-top: 5px; padding-bottom: 5px;}
+}
+
+@keyframes closing_Dropdown_Items{
+	from {padding-top: 5px; padding-bottom: 5px;}
+	to {padding-top: 0px; padding-bottom: 0px;}
+}
+
+@keyframes opening_Onboarding_Welcome{
+	from {opacity: 0%; transform: translateY(30px);}
+	to {opacity: 100%; transform: translateY(0px);}
+}
+
+@keyframes opening_Onboarding_Process{
+	from {transform: translateY(100%);}
+	to {transform: translateY(0%);}
+}
+
+@keyframes opening_SearchBar{
+	from {opacity: 0%; height: 0px;}
+	to {opacity: 100%; height: 50px;}
+}
+
+@keyframes closing_SearchBar{
+	from {opacity: 100%; height: 50px;}
+	to {opacity: 0%; height: 0px;}
+}
+
+@keyframes opacitateToLeft{
+	from {transform: translateX(-500px); opacity: 0%;}
+	to {transform: translateX(0px); opacity: 100%;}
+}
+
+@keyframes opacitateToRight{
+	from {transform: translateX(500px); opacity: 0%;}
+	to {transform: translateX(0px); opacity: 100%;}
+}
+
+@keyframes OBN_Animation_Forward{
+	from {transform: translateX(25px); opacity: 0%;}
+	to {transform: translateX(0px); opacity: 100%;}
+}
+
+@keyframes OBN_Animation_Backward{
+	from {transform: translateX(-25px); opacity: 0%;}
+	to {transform: translateX(0px); opacity: 100%;}
+}
+
+@keyframes opening_TDL_ListItem{
+	from {opacity: 0%;}
+	to {opacity: 100%;}
+}
+
+@keyframes TDL_Swipe_ToRight{
+	from {transform: translateX(0px); opacity: 100%;}
+	to {transform: translateX(100%); opacity: 0%;}
+}
+
+@keyframes TDL_Swipe_ToLeft{
+	from {transform: translateX(0px); opacity: 100%;}
+	to {transform: translateX(-100%); opacity: 0%;}
+}
+
+@keyframes login_Animation{
+	from {transform: translateY(30px); opacity: 0%;}
+	to {transform: translateY(0px); opacity: 100%;}
+}
+
+@keyframes Header_Greeting_Welcome{
+	from {transform: translateY(0px);}
+	to {transform: translateY(-65px);}
+}
+
+@keyframes fadeIn{
+	from {opacity: 0%;}
+	to {opacity: 100%;}
+}
+
+@keyframes fadeOut{
+	from {opacity: 100%;}
+	to {opacity: 0%;}
+}
+
+@keyframes ShortcutEditor_TableView_Item_Opening{
+	from {transform: scale(1.1);}
+	to {transform: scale(1);}
+}
+
+@keyframes ShortcutEditor_NormalView_Item_Opening{
+	from {transform: scale(1.1);}
+	to {transform: scale(1);}
+}
+
+@keyframes SplashScreen_Loader_Load {
+	0% {width: 0%; transform: translateX(0%);}
+	50% {width: 100%; transform: translateX(0%);}
+	100% {width: 100%; transform: translateX(100%);}
+}
