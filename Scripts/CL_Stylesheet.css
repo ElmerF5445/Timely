@@ -47,17 +47,44 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: "Alexandria";
+	src: url("../Assets/Fonts/Alexandria-VariableFont_wght.ttf") format("truetype");
+	font-weight: 100 900;
+}
+
+@font-face {
+	font-family: "Short_Xurquit";
+	src: url("../Assets/Fonts/ShortXurkit-2Xdv.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Gas";
+	src: url("../Assets/Fonts/GAS.TTF") format("truetype");
+}
+
+@font-face {
+	font-family: "Digital_7";
+	src: url("../Assets/Fonts/digital-7.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Klarissa";
+	src: url("../Assets/Fonts/Klarissa.ttf") format("truetype");
+}
+
 .Clock_Main{
     margin: 0;
     top: 0;
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #27038a;
+    background-color: var(--CL-Clock-Background-Color);
+    /* background-color: #27038a; */
     
-    z-index: 100;
+    z-index: 51;
     user-select: none;
-    transition: 30s;
+    transition: 5s;
 }
 
 .Clock_Main[data-id="Gradient_Transition_Start_OldToNew"]{
@@ -101,27 +128,49 @@
     pointer-events: none;
 }
 
-.Clock_Main_Text_Hours{
+.Clock_Main_Text_Hours_Digit_1{
     font-family: var(--CL-Clock-Text-Font);
     font-size: var(--CL-Clock-Text-Size);
-    color: var(--CL-Clock-Text-Color-Hour);
+    color: var(--CL-Clock-Text-Color-Hour-D1);
     transition: color 30s;
     pointer-events: all;
+    font-weight: normal;
+}
+
+.Clock_Main_Text_Hours_Digit_2{
+    font-family: var(--CL-Clock-Text-Font);
+    font-size: var(--CL-Clock-Text-Size);
+    color: var(--CL-Clock-Text-Color-Hour-D2);
+    transition: color 30s;
+    pointer-events: all;
+    font-weight: normal;
 }
 
 .Clock_Main_Text_Blinker{
     font-family: var(--CL-Clock-Text-Font);
     font-size: var(--CL-Clock-Text-Size);
+    color: var(--CL-Clock-Text-Color-Blinker);
     transition: color 30s;
     pointer-events: all;
+    font-weight: normal;
 }
 
-.Clock_Main_Text_Minutes{
+.Clock_Main_Text_Minutes_Digit_1{
     font-family: var(--CL-Clock-Text-Font);
     font-size: var(--CL-Clock-Text-Size);
-    color: var(--CL-Clock-Text-Color-Hour);
+    color: var(--CL-Clock-Text-Color-Minutes-D1);
     transition: color 30s;
     pointer-events: all;
+    font-weight: normal;
+}
+
+.Clock_Main_Text_Minutes_Digit_2{
+    font-family: var(--CL-Clock-Text-Font);
+    font-size: var(--CL-Clock-Text-Size);
+    color: var(--CL-Clock-Text-Color-Minutes-D2);
+    transition: color 30s;
+    pointer-events: all;
+    font-weight: normal;
 }
 
 .Clock_Main_SettingsButton_Container{
@@ -213,6 +262,26 @@
     font-family: Product_Sans;
 }
 
+.Clock_Settings_FontSelector_Item:nth-child(8){
+    font-family: Alexandria;
+}
+
+.Clock_Settings_FontSelector_Item:nth-child(9){
+    font-family: Short_Xurquit;
+}
+
+.Clock_Settings_FontSelector_Item:nth-child(10){
+    font-family: Gas;
+}
+
+.Clock_Settings_FontSelector_Item:nth-child(11){
+    font-family: Digital_7;
+}
+
+.Clock_Settings_FontSelector_Item:nth-child(12){
+    font-family: Klarissa;
+}
+
 .Clock_Settings_Input{
     max-width: 500px;
     display: grid;
@@ -222,4 +291,122 @@
 .Clock_Settings_Input_Text{
     font-family: var(--Text-Font-Secondary);
     color: var(--Text-Color);
+}
+
+.Clock_Settings_Overlay{
+    position: fixed;
+    z-index: 55;
+    /* background-color: #8061d5; */
+    width: 100%;
+    height: 100%;
+    display: none;
+    pointer-events: all;
+}
+
+.Clock_Settings_Overlay_Top{
+    background-color: var(--BG-Color-Opacitated);
+    backdrop-filter: var(--Element-BackdropBlur);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Clock_Settings_Overlay_Top_Text{
+    font-family: Raleway;
+    margin-right: 10px;
+    color: white;
+}
+
+
+.Clock_Settings_Overlay_BackButton{
+    transition: var(--Element-Transition-Delay);
+    top: 10px;
+    left: 10px;
+    width: 75px;
+    height: 75px;
+    background-color: var(--BG-Color-Button-General);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.Clock_Settings_Overlay_BackButton:hover{
+    background-color: var(--BG-Color-Button-General-Hover);
+}
+
+.Clock_Settings_Overlay_BackButton:active{
+    background-color: var(--BG-Color-Button-General-Focus);
+}
+
+.Clock_Settings_Overlay_BackButton_Icon{
+    width: 51px;
+    height: 51px;
+    padding: 8px;
+}
+
+.Clock_Settings_Overlay_Top_Input_Range{
+    width: 50vw;
+}
+
+.Clock_Settings_ClockPreview{
+    background-color: var(--CL-Clock-Background-Color);
+    width: 100%;
+    height: 75px;
+    top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    border-radius: 7px;
+    transition: var(--Element-Transition-Delay);
+}
+
+.Clock_Settings_ClockPreview_Text_Hours_Digit_1{
+    font-family: var(--CL-Clock-Text-Font);
+    color: var(--CL-Clock-Text-Color-Hour-D1);
+    margin: 0;
+    font-weight: normal;
+    font-size: 70px;
+    transition: var(--Element-Transition-Delay);
+}
+
+.Clock_Settings_ClockPreview_Text_Hours_Digit_2{
+    font-family: var(--CL-Clock-Text-Font);
+    color: var(--CL-Clock-Text-Color-Hour-D2);
+    margin: 0;
+    font-weight: normal;
+    font-size: 70px;
+    transition: var(--Element-Transition-Delay);
+}
+
+.Clock_Settings_ClockPreview_Text_Blinker{
+    font-family: var(--CL-Clock-Text-Font);
+    color: var(--CL-Clock-Text-Color-Blinker);
+    margin: 0;
+    font-weight: normal;
+    font-size: 70px;
+    transition: var(--Element-Transition-Delay);
+    display: var(--CL-Clock-Text-Visibility-Blinker);
+}
+
+.Clock_Settings_ClockPreview_Text_Minutes_Digit_1{
+    font-family: var(--CL-Clock-Text-Font);
+    color: var(--CL-Clock-Text-Color-Minutes-D1);
+    margin: 0;
+    font-weight: normal;
+    font-size: 70px;
+    transition: var(--Element-Transition-Delay);
+}
+
+.Clock_Settings_ClockPreview_Text_Minutes_Digit_2{
+    font-family: var(--CL-Clock-Text-Font);
+    color: var(--CL-Clock-Text-Color-Minutes-D2);
+    margin: 0;
+    font-weight: normal;
+    font-size: 70px;
+    transition: var(--Element-Transition-Delay);
 }

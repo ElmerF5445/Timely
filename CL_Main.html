@@ -400,22 +400,44 @@
 			</p>
 		</div>
 	</div>
+	<div class="Clock_Settings_Overlay" id="Clock_Settings_Overlay">
+		<div class="Clock_Settings_Overlay_BackButton" onclick="Tabs_ChangeTab('ClockSettings'), CL_Settings_Toggle_Overlay('Closed')">
+			<img src="Assets/Icons/icon_leftArrow.png" class="Clock_Settings_Overlay_BackButton_Icon"/>
+		</div>
+		<div class="Clock_Settings_Overlay_Top">
+			<h3 class="Clock_Settings_Overlay_Top_Text">
+				Adjust text size
+			</h3>
+			<input type="range" min="1" max="100" class="Clock_Settings_Overlay_Top_Input_Range" id="CL-Setting-Text-Size" oninput="CL_Settings_Save_Settings()" value="80"/>
+		</div>
+	</div>
+	<div class="Clock_Overlay" id="Clock_Overlay">
+		<div class="Clock_Overlay_Top">
+			
+		</div>
+	</div>
 	<div class="Clock_Main" id="tab_Clock">
-		<div class="Clock_Main_SettingsButton_Container" onclick="Tabs_ChangeTab('ClockSettings')">
-			<div class="Clock_Main_SettingsButton">
+		<div class="Clock_Main_SettingsButton_Container">
+			<div class="Clock_Main_SettingsButton" onclick="Tabs_ChangeTab('ClockSettings')">
 				<img src="Assets/Icons/icon_settings.png" 	class="Clock_Main_SettingsButton_Icon" draggable="false">
 			</div>
 		</div>
 		
 		<div class="Clock_Main_Content" id="Clock_Main_Content" onclick="CL_FullScreen()">
-			<h1 class="Clock_Main_Text_Hours" id="CL_Clock_Main_Text_Hours" onclick="CL_FullScreen()">
-				12
+			<h1 class="Clock_Main_Text_Hours_Digit_1" id="CL_Clock_Main_Text_Hours_Digit_1" onclick="CL_FullScreen()">
+				0
 			</h1>
-			<h1 class="Clock_Main_Text_Blinker" id="CL_Clock_Main_Text_Blinker">
+			<h1 class="Clock_Main_Text_Hours_Digit_2" id="CL_Clock_Main_Text_Hours_Digit_2" onclick="CL_FullScreen()">
+				3
+			</h1>
+			<h1 class="Clock_Main_Text_Blinker" id="CL_Clock_Main_Text_Blinker" onclick="CL_FullScreen()">
 				:
 			</h1>
-			<h1 class="Clock_Main_Text_Minutes" id="CL_Clock_Main_Text_Minutes" onclick="CL_FullScreen()">
-				39
+			<h1 class="Clock_Main_Text_Minutes_Digit_1" id="CL_Clock_Main_Text_Minutes_Digit_1" onclick="CL_FullScreen()">
+				1
+			</h1>
+			<h1 class="Clock_Main_Text_Minutes_Digit_2" id="CL_Clock_Main_Text_Minutes_Digit_2" onclick="CL_FullScreen()">
+				2
 			</h1>
 		</div>
 	</div>
@@ -445,16 +467,113 @@
 					<div class="Toggle_Indicator" data-id="Toggle_Activated"></div>
 					Prevent device from sleeping
 				</div>
-				<span class="anchor" id="anchor_category_Clock_Text"></span>
-				<div class="Category_Label" id="category_Clock_Text" onclick="toggle_Category(this.id)">
+				<div class="Toggle" id="toggle_Settings_ShowColon" onclick="toggle_Button(this.id), CL_Settings_Save_Settings()">
+					<div class="Toggle_Indicator" data-id="Toggle_Deactivated"></div>
+					Show clock colon
+				</div>
+				<div class="Clock_Settings_ClockPreview">
+					<h1 class="Clock_Settings_ClockPreview_Text_Hours_Digit_1">
+						1
+					</h1>
+					<h1 class="Clock_Settings_ClockPreview_Text_Hours_Digit_2">
+						1
+					</h1>
+					<h1 class="Clock_Settings_ClockPreview_Text_Blinker">
+						:
+					</h1>
+					<h1 class="Clock_Settings_ClockPreview_Text_Minutes_Digit_1">
+						5
+					</h1>
+					<h1 class="Clock_Settings_ClockPreview_Text_Minutes_Digit_2">
+						9
+					</h1>
+				</div>
+
+				<span class="anchor" id="anchor_category_Clock_Color"></span>
+				<div class="Category_Label" id="category_Clock_Color" onclick="toggle_Category(this.id)">
 					<img class="Category_Label_Icon" src="Assets/Icons/favicon_old.png"></img>
 					<h1 class="Category_Label_Text">
-						Clock text
+						Clock color
 					</h1>
 					<img class="Category_Label_Toggle" src="Assets/Icons/icon_downArrow.png"
-						id="arrow_category_Clock_Text"></img>
+						id="arrow_category_Clock_Color"></img>
 				</div>
-				<div id="content_category_Clock_Text" class="Category_Content_Container">
+				<div id="content_category_Clock_Color" class="Category_Content_Container">
+					<div class="Clock_Settings_Input">
+						<p class="Clock_Settings_Input_Text">
+							Text color (hours - digit 1): 
+						</p>
+						<input type="color" class="Input_Color" id="CL-Setting-Text-Color-Hours" onchange="CL_Settings_Save_Settings()" value="#000000"/>
+					</div>
+					<div class="Clock_Settings_Input">
+						<p class="Clock_Settings_Input_Text">
+							Text color (hours - digit 2): 
+						</p>
+						<input type="color" class="Input_Color" id="CL-Setting-Text-Color-Hours-D2" onchange="CL_Settings_Save_Settings()" value="#000000"/>
+					</div>
+					<div class="Clock_Settings_Input">
+						<p class="Clock_Settings_Input_Text">
+							Text color (minutes - digit 1): 
+						</p>
+						<input type="color" class="Input_Color" id="CL-Setting-Text-Color-Minutes" onchange="CL_Settings_Save_Settings()" value="#000000"/>
+					</div>
+					<div class="Clock_Settings_Input">
+						<p class="Clock_Settings_Input_Text">
+							Text color (minutes - digit 2): 
+						</p>
+						<input type="color" class="Input_Color" id="CL-Setting-Text-Color-Minutes-D2" onchange="CL_Settings_Save_Settings()" value="#000000"/>
+					</div>
+					<div class="Clock_Settings_Input">
+						<p class="Clock_Settings_Input_Text">
+							Text color (blinker): 
+						</p>
+						<input type="color" class="Input_Color" id="CL-Setting-Text-Color-Blinker" onchange="CL_Settings_Save_Settings()" value="#000000"/>
+					</div>
+					<div class="General_Button" onclick="CL_Settings_Change_ClockColors('Match_Hours')">
+						Set digit 2 color to digit 1 (hours)
+					</div>
+					<div class="General_Button" onclick="CL_Settings_Change_ClockColors('Match_Minutes')">
+						Set digit 2 color to digit 1 (minutes)
+					</div>
+					<div class="General_Button" onclick="CL_Settings_Change_ClockColors('Alternate_H1M1')">
+						Set color of digit 1 of minutes with digit 1 of hours
+					</div>
+					<div class="General_Button" onclick="CL_Settings_Change_ClockColors('Alternate_H2M2')">
+						Set color of digit 2 of minutes with digit 2 of hours
+					</div>
+					<div class="General_Button" onclick="CL_Settings_Change_ClockColors('Match_All')">
+						Set all digit colors to digit 1 color of hours
+					</div>
+				</div>
+				<div class="Category_Label" id="category_Clock_Background" onclick="toggle_Category(this.id)">
+					<img class="Category_Label_Icon" src="Assets/Icons/favicon_old.png"></img>
+					<h1 class="Category_Label_Text">
+						Clock background
+					</h1>
+					<img class="Category_Label_Toggle" src="Assets/Icons/icon_downArrow.png"
+						id="arrow_category_Clock_Background"></img>
+				</div>
+				<div id="content_category_Clock_Background" class="Category_Content_Container">
+					<div class="Clock_Settings_Input">
+						<p class="Clock_Settings_Input_Text">
+							Background color: 
+						</p>
+						<input type="color" class="Input_Color" id="CL-Setting-Background-Color" onchange="CL_Settings_Save_Settings()" value="#27038a"/>
+					</div>
+					<!-- <p class="General_Paragraph">
+						Background color and clock color will switch periodically to prevent screen burn-ins.
+					</p> -->
+				</div>
+				<span class="anchor" id="anchor_category_Clock_Font"></span>
+				<div class="Category_Label" id="category_Clock_Font" onclick="toggle_Category(this.id)">
+					<img class="Category_Label_Icon" src="Assets/Icons/favicon_old.png"></img>
+					<h1 class="Category_Label_Text">
+						Clock font
+					</h1>
+					<img class="Category_Label_Toggle" src="Assets/Icons/icon_downArrow.png"
+						id="arrow_category_Clock_Font"></img>
+				</div>
+				<div id="content_category_Clock_Font" class="Category_Content_Container">
 					<div class="Clock_Settings_FontSelector">
 						<div class="Clock_Settings_FontSelector_Item" onclick="CL_Settings_Change_Font('Raleway'), CL_Settings_Save_Settings()">
 							11:59
@@ -477,49 +596,33 @@
 						<div class="Clock_Settings_FontSelector_Item" onclick="CL_Settings_Change_Font('Product_Sans'), CL_Settings_Save_Settings()">
 							11:59
 						</div>
+						<div class="Clock_Settings_FontSelector_Item" onclick="CL_Settings_Change_Font('Alexandria'), CL_Settings_Save_Settings()">
+							11:59
+						</div>
+						<div class="Clock_Settings_FontSelector_Item" onclick="CL_Settings_Change_Font('Short_Xurquit'), CL_Settings_Save_Settings()">
+							11:59
+						</div>
+						<div class="Clock_Settings_FontSelector_Item" onclick="CL_Settings_Change_Font('Gas'), CL_Settings_Save_Settings()">
+							11:59
+						</div>
+						<div class="Clock_Settings_FontSelector_Item" onclick="CL_Settings_Change_Font('Digital_7'), CL_Settings_Save_Settings()">
+							11:59
+						</div>
+						<div class="Clock_Settings_FontSelector_Item" onclick="CL_Settings_Change_Font('Klarissa'), CL_Settings_Save_Settings()">
+							11:59
+						</div>
 					</div>
-					<div class="Clock_Settings_Input">
-						<p class="Clock_Settings_Input_Text">
-							Text color (hours): 
-						</p>
-						<input type="color" class="Input_Color" id="CL-Setting-Text-Color-Hours" onchange="CL_Settings_Save_Settings()" value="#000000"/>
-					</div>
-					<div class="Clock_Settings_Input">
-						<p class="Clock_Settings_Input_Text">
-							Text color (minutes): 
-						</p>
-						<input type="color" class="Input_Color" id="CL-Setting-Text-Color-Minutes" onchange="CL_Settings_Save_Settings()" value="#000000"/>
-					</div>
-					<div class="Toggle" id="toggle_Settings_ShowColon" onclick="toggle_Button(this.id), CL_Settings_Save_Settings()">
-						<div class="Toggle_Indicator" data-id="Toggle_Deactivated"></div>
-						Show clock colon
-					</div>
+					
 					<div class="Clock_Settings_Input" style="width: 500px">
 						<p class="Clock_Settings_Input_Text">
 							Font size (relative to the height of the screen): 
 						</p>
-						<input type="range"  style="width: 150px" min="1" max="100" class="Input_Color" id="CL-Setting-Text-Size" onchange="CL_Settings_Save_Settings()" value="80"/>
+						<div class="General_Button" onclick="Tabs_ChangeTab('Clock'), CL_Settings_Toggle_Overlay('Open')">
+							Adjust text size
+						</div>
 					</div>
 				</div>
-				<div class="Category_Label" id="category_Clock_Background" onclick="toggle_Category(this.id)">
-					<img class="Category_Label_Icon" src="Assets/Icons/favicon_old.png"></img>
-					<h1 class="Category_Label_Text">
-						Clock background
-					</h1>
-					<img class="Category_Label_Toggle" src="Assets/Icons/icon_downArrow.png"
-						id="arrow_category_Clock_Background"></img>
-				</div>
-				<div id="content_category_Clock_Background" class="Category_Content_Container">
-					<div class="Clock_Settings_Input">
-						<p class="Clock_Settings_Input_Text">
-							Background color: 
-						</p>
-						<input type="color" class="Input_Color" id="CL-Setting-Background-Color" onchange="CL_Settings_Save_Settings()" value="#27038a"/>
-					</div>
-					<p class="General_Paragraph">
-						Background color and clock color will switch periodically to prevent screen burn-ins.
-					</p>
-				</div>
+				
 			</div>
 			<!--<div style="width: 100%; height: 100%; background-color: rgb(99, 99, 99); position: relative" id="container">
 				<div style="background-color: aqua; width: 40px; height: 40px; position: absolute; cursor: move; resize: both" id="testers">
