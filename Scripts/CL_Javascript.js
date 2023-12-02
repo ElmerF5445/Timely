@@ -81,8 +81,8 @@ function CL_Clock_Start_Time() {
 	}
 
 	
-      document.getElementById("CL_Clock_Main_Text_Hours_Digit_1").innerHTML = displayHour.charAt(0);
-      document.getElementById("CL_Clock_Main_Text_Hours_Digit_2").innerHTML = displayHour.charAt(1);
+      document.getElementById("CL_Clock_Main_Text_Hours_Digit_1").innerHTML = displayHour.toString().charAt(0);
+      document.getElementById("CL_Clock_Main_Text_Hours_Digit_2").innerHTML = displayHour.toString().charAt(1);
       document.getElementById("CL_Clock_Main_Text_Minutes_Digit_1").innerHTML = m.toString().charAt(0);
       document.getElementById("CL_Clock_Main_Text_Minutes_Digit_2").innerHTML = m.toString().charAt(1);
 
@@ -172,13 +172,16 @@ function CL_Settings_Save_Settings(){
                   Font - Family
                   Color - Hours - Digit 1
                   Color - Minutes - Digit 1
-                  Toggle - Blinker Visibility
-                  Font - Size
+                  Toggle - Blinker - Visibility
+                  Range - Font - Size
                   Color - Hours - Digit 2
                   Color - Minutes - Digit 2
                   Color - Blinker
+                  Toggle - Blinker - Animation
+                  Range - Blinker - Animation Duration
+                  Toggle - Blinker - Animation Function
       */
-      let Settings_Group_ClockText = [CL_Settings_Value_ClockText_Font, document.getElementById("CL-Setting-Text-Color-Hours").value, document.getElementById("CL-Setting-Text-Color-Minutes").value, document.getElementById("toggle_Settings_ShowColon").querySelector(".Toggle_Indicator").getAttribute("data-id"), document.getElementById("CL-Setting-Text-Size").value, document.getElementById("CL-Setting-Text-Color-Hours-D2").value, document.getElementById("CL-Setting-Text-Color-Minutes-D2").value, document.getElementById("CL-Setting-Text-Color-Blinker").value];
+      let Settings_Group_ClockText = [CL_Settings_Value_ClockText_Font, document.getElementById("CL-Setting-Text-Color-Hours").value, document.getElementById("CL-Setting-Text-Color-Minutes").value, document.getElementById("toggle_Settings_ShowColon").querySelector(".Toggle_Indicator").getAttribute("data-id"), document.getElementById("CL-Setting-Text-Size").value, document.getElementById("CL-Setting-Text-Color-Hours-D2").value, document.getElementById("CL-Setting-Text-Color-Minutes-D2").value, document.getElementById("CL-Setting-Text-Color-Blinker").value, document.getElementById("toggle_Settings_BlinkColon").querySelector(".Toggle_Indicator").getAttribute("data-id"), document.getElementById("CL-Setting-Text-Blinker-AnimationSpeed").value, document.getElementById("toggle_Settings_BlinkColon_FadeAnimation").querySelector(".Toggle_Indicator").getAttribute("data-id")];
 
       let Settings_Group_ClockBackground = [document.getElementById("CL-Setting-Background-Color").value];
       console.log(Settings_Group_ClockText);
@@ -226,11 +229,24 @@ function CL_Settings_Load_Settings(){
       if (Settings_MainArray[0][3] == "Toggle_Activated"){
             // document.getElementById("CL_Clock_Main_Text_Blinker").style.display = "none";
             Root_Stylesheet.style.setProperty('--CL-Clock-Text-Visibility-Blinker', "block");
+      } else {
+            Root_Stylesheet.style.setProperty('--CL-Clock-Text-Visibility-Blinker', "none");
       }
       Root_Stylesheet.style.setProperty('--CL-Clock-Text-Size', Settings_MainArray[0][4] + "vh");
       Root_Stylesheet.style.setProperty('--CL-Clock-Text-Color-Hour-D2', Settings_MainArray[0][5]);
       Root_Stylesheet.style.setProperty('--CL-Clock-Text-Color-Minutes-D2', Settings_MainArray[0][6]);
       Root_Stylesheet.style.setProperty('--CL-Clock-Text-Color-Blinker', Settings_MainArray[0][7]);
+      if (Settings_MainArray[0][8] == "Toggle_Activated"){
+            Root_Stylesheet.style.setProperty('--CL-Clock-Animation-Blinker', "Clock_Blinker_Blink");
+      } else {
+            Root_Stylesheet.style.setProperty('--CL-Clock-Animation-Blinker', "none");
+      }      
+      Root_Stylesheet.style.setProperty('--CL-Clock-Animation-Duration-Blinker', Settings_MainArray[0][9] + "s");
+      if (Settings_MainArray[0][10] == "Toggle_Activated"){
+            Root_Stylesheet.style.setProperty('--CL-Clock-Animation-TimingFunction-Blinker', "ease-in-out");
+      } else {
+            Root_Stylesheet.style.setProperty('--CL-Clock-Animation-TimingFunction-Blinker', "steps(1, end)");
+      }    
       
       
 
@@ -258,6 +274,10 @@ function CL_Settings_Load_Values(){
       document.getElementById("CL-Setting-Text-Color-Hours-D2").value = Settings_MainArray[0][5];
       document.getElementById("CL-Setting-Text-Color-Minutes-D2").value = Settings_MainArray[0][6];
       document.getElementById("CL-Setting-Text-Color-Blinker").value = Settings_MainArray[0][7];
+      document.getElementById("toggle_Settings_BlinkColon").querySelector(".Toggle_Indicator").setAttribute("data-id", Settings_MainArray[0][8]);
+      document.getElementById("CL-Setting-Text-Blinker-AnimationSpeed").value = Settings_MainArray[0][9];
+            document.getElementById("CL-Setting-Text-Blinker-AnimationSpeed-Value").innerHTML = "Blinking speed (" + Settings_MainArray[0][9] + "s): "; 
+      document.getElementById("toggle_Settings_BlinkColon_FadeAnimation").querySelector(".Toggle_Indicator").setAttribute("data-id", Settings_MainArray[0][10]);
 
       // Group 2 - Clock background
       document.getElementById("CL-Setting-Background-Color").value = Settings_MainArray[1][0];

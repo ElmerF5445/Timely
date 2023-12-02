@@ -13,6 +13,9 @@
 	--CL-Clock-Text-Color-Minutes-D2: "black";
 	--CL-Clock-Text-Visibility-Blinker: "none";
 	--CL-Clock-Background-Color: "#27038a";
+	--CL-Clock-Animation-Blinker: Clock_Blinker_Blink;
+	--CL-Clock-Animation-Duration-Blinker: 2s;
+	--CL-Clock-Animation-TimingFunction-Blinker: ease-in-out;
 	--CL-Clock-Background-Gradient-Old: "linear-gradient(45deg, #27038a 0%, #27038a 100%)";
 	--CL-Clock-Background-Gradient-New: "linear-gradient(45deg, #27038a 0%, #27038a 100%)";
 	--Debug-ElementOutline: none;

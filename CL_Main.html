@@ -471,6 +471,20 @@
 					<div class="Toggle_Indicator" data-id="Toggle_Deactivated"></div>
 					Show clock colon
 				</div>
+				<div class="Toggle" id="toggle_Settings_BlinkColon" onclick="toggle_Button(this.id), CL_Settings_Save_Settings()">
+					<div class="Toggle_Indicator" data-id="Toggle_Deactivated"></div>
+					Make the clock colon blink
+				</div>
+				<div class="Toggle" id="toggle_Settings_BlinkColon_FadeAnimation" onclick="toggle_Button(this.id), CL_Settings_Save_Settings()">
+					<div class="Toggle_Indicator" data-id="Toggle_Deactivated"></div>
+					Fade clock colon blinking animation
+				</div>
+				<div style="display: grid; grid-template-columns: 1fr 1fr;">
+					<p class="General_Paragraph" id="CL-Setting-Text-Blinker-AnimationSpeed-Value">
+						Blinking speed (s)
+					</p>
+					<input type="range" min="1" max="10" class="Input_Range" id="CL-Setting-Text-Blinker-AnimationSpeed" oninput="CL_Settings_Save_Settings()" value="1"/>
+				</div>
 				<div class="Clock_Settings_ClockPreview">
 					<h1 class="Clock_Settings_ClockPreview_Text_Hours_Digit_1">
 						1

@@ -132,7 +132,7 @@
     font-family: var(--CL-Clock-Text-Font);
     font-size: var(--CL-Clock-Text-Size);
     color: var(--CL-Clock-Text-Color-Hour-D1);
-    transition: color 30s;
+    transition: color 10s;
     pointer-events: all;
     font-weight: normal;
 }
@@ -141,7 +141,7 @@
     font-family: var(--CL-Clock-Text-Font);
     font-size: var(--CL-Clock-Text-Size);
     color: var(--CL-Clock-Text-Color-Hour-D2);
-    transition: color 30s;
+    transition: color 10s;
     pointer-events: all;
     font-weight: normal;
 }
@@ -150,16 +150,22 @@
     font-family: var(--CL-Clock-Text-Font);
     font-size: var(--CL-Clock-Text-Size);
     color: var(--CL-Clock-Text-Color-Blinker);
-    transition: color 30s;
+    transition: color 10s;
     pointer-events: all;
     font-weight: normal;
+    display: var(--CL-Clock-Text-Visibility-Blinker);
+    animation-name: var(--CL-Clock-Animation-Blinker);
+    animation-duration: var(--CL-Clock-Animation-Duration-Blinker);
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-timing-function: var(--CL-Clock-Animation-TimingFunction-Blinker);
 }
 
 .Clock_Main_Text_Minutes_Digit_1{
     font-family: var(--CL-Clock-Text-Font);
     font-size: var(--CL-Clock-Text-Size);
     color: var(--CL-Clock-Text-Color-Minutes-D1);
-    transition: color 30s;
+    transition: color 10s;
     pointer-events: all;
     font-weight: normal;
 }
@@ -168,7 +174,7 @@
     font-family: var(--CL-Clock-Text-Font);
     font-size: var(--CL-Clock-Text-Size);
     color: var(--CL-Clock-Text-Color-Minutes-D2);
-    transition: color 30s;
+    transition: color 10s;
     pointer-events: all;
     font-weight: normal;
 }
@@ -391,6 +397,11 @@
     font-size: 70px;
     transition: var(--Element-Transition-Delay);
     display: var(--CL-Clock-Text-Visibility-Blinker);
+    animation-name: var(--CL-Clock-Animation-Blinker);
+    animation-duration: var(--CL-Clock-Animation-Duration-Blinker);
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-timing-function: var(--CL-Clock-Animation-TimingFunction-Blinker);
 }
 
 .Clock_Settings_ClockPreview_Text_Minutes_Digit_1{
@@ -410,3 +421,4 @@
     font-size: 70px;
     transition: var(--Element-Transition-Delay);
 }
+

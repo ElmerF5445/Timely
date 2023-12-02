@@ -252,3 +252,15 @@
 	50% {width: 100%; transform: translateX(0%);}
 	100% {width: 100%; transform: translateX(100%);}
 }
+
+@keyframes Clock_Blinker_Blink {
+	0%{
+		opacity: 0%;
+	}
+	50%{
+		opacity: 100%;
+	}
+	100%{
+		opacity: 0%;
+	}
+}
