@@ -184,7 +184,6 @@
     height: 115px;
     position: absolute;
     z-index: 50;
-    /* background-color: aqua; */
 }
 
 .Clock_Main_SettingsButton_Container:hover > .Clock_Main_SettingsButton{
