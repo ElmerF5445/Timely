@@ -328,3 +328,8 @@ function CL_Settings_Change_ClockColors(Configuration){
       }
       CL_Settings_Save_Settings();
 }
+
+function CL_Settings_ResetData(){
+      localStorage.removeItem(CL_Settings_Key)
+      location.reload();
+}

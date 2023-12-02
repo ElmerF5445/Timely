@@ -186,6 +186,26 @@
 				</div>
 			</div>
 		</div>
+		<div class="Modal" id="subwindow_CL_Settings_ResetData_Confirm">
+			<div class="Modal_TitleBar">
+				<h2 class="Modal_TitleBar_Title">
+					Reset settings data?
+				</h2>
+			</div>
+			<div class="Modal_Content">
+				<p class="General_Paragraph">
+					All settings and site data will be deleted.
+				</p>
+			</div>
+			<div class="Modal_Content_Bottom">
+				<div class="Subwindow_Bottom_Button_SecondaryAction" onclick="close_Subwindow('CL_Settings_ResetData_Confirm')">
+					Cancel
+				</div>
+				<div class="Subwindow_Bottom_Button_PrimaryAction" onclick="CL_Settings_ResetData()">
+					Reset data
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="ToastNotif" id="pageElement_ToastDrawer">
 	</div>
@@ -462,6 +482,9 @@
 				</h1>
 				<div class="General_Button" onclick="CL_FullScreen()">
 					Go fullcreen (click on clock)
+				</div>
+				<div class="General_Button" onclick="open_Subwindow('CL_Settings_ResetData_Confirm')">
+					Reset settings data
 				</div>
 				<div class="Toggle" id="toggle_Settings_PreventSleep" onclick="toggle_Button(this.id), CL_Settings_Save_Settings()">
 					<div class="Toggle_Indicator" data-id="Toggle_Activated"></div>
