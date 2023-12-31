@@ -25,7 +25,6 @@ function CL_Clock_Start_Time() {
       let h = today.getHours();
       let m = today.getMinutes();
       let s = today.getSeconds();
-	
 	m = checkTime(m);
 	s = checkTime(s);
 	//var = displayTime;
@@ -80,19 +79,33 @@ function CL_Clock_Start_Time() {
 		var AMPM = "PM";
 	}
 
+      if(document.getElementById("CL_Clock_Main_Text_Hours_Digit_1").innerText == "1" && document.getElementById("CL_Clock_Main_Text_Hours_Digit_2").innerText == "2"){
+            document.getElementById("CL_Clock_Battery").innerHTML = "Happy New Year 2024!";
+      }
+
+      // navigator.getBattery().then(function(battery){
+      //       var batteryLevel = battery.level * 100;
+      //       document.getElementById("CL_Clock_Battery").innerHTML = batteryLevel + "%";
+      // });
 	
       document.getElementById("CL_Clock_Main_Text_Hours_Digit_1").innerHTML = displayHour.toString().charAt(0);
       document.getElementById("CL_Clock_Main_Text_Hours_Digit_2").innerHTML = displayHour.toString().charAt(1);
       document.getElementById("CL_Clock_Main_Text_Minutes_Digit_1").innerHTML = m.toString().charAt(0);
       document.getElementById("CL_Clock_Main_Text_Minutes_Digit_2").innerHTML = m.toString().charAt(1);
+      document.getElementById("CL_Clock_Main_Text_Seconds_Digit_1").innerHTML = s.toString().charAt(0);
+      document.getElementById("CL_Clock_Main_Text_Seconds_Digit_2").innerHTML = s.toString().charAt(1);
 
       // Shifts number position randomly betwen -5 and 5
-      var randomX = (Math.random() - 0.5) * 10; 
-      var randomY = (Math.random() - 0.5) * 10; 
+      // var randomX = (Math.random() - 0.5) * 10; 
+      // var randomY = (Math.random() - 0.5) * 10; 
 
-      document.getElementById("Clock_Main_Content").style.transform = "translate(" + randomX + "px, " + randomY + "px)";
+      // document.getElementById("Clock_Main_Content").style.transform = "translate(" + randomX + "px, " + randomY + "px)";
+      // document.getElementById("Clock_Overlay").style.transform = "translate(" + randomX + "px, " + randomY + "px)";
 
-	setTimeout(CL_Clock_Start_Time, 60000);
+     
+
+	// setTimeout(CL_Clock_Start_Time, 60000);
+	setTimeout(CL_Clock_Start_Time, 1000);
 }
 
 function checkTime(i) {
@@ -332,4 +345,12 @@ function CL_Settings_Change_ClockColors(Configuration){
 function CL_Settings_ResetData(){
       localStorage.removeItem(CL_Settings_Key)
       location.reload();
+}
+
+function CL_Toggle_Overlays(State){
+      if (State == "Visible"){
+            document.getElementById("Clock_Overlay").style.display = "block";
+      } else {
+            document.getElementById("Clock_Overlay").style.display = "none";
+      }
 }

@@ -409,7 +409,7 @@
 				Simple online digital clock
 			</p>
 		</div>
-		<div class="Sidebar_Item" id="ClockSettings" onclick="trigger_ChangeTab_test(this.id)">
+		<div class="Sidebar_Item" id="ClockSettings" onclick="trigger_ChangeTab_test(this.id), CL_Toggle_Overlays('Visible')">
 			<img class="Sidebar_Item_Icon" id="tabIcon_ClockSettings" src="Assets/Icons/icon_settings.png"></img>
 			<p class="Sidebar_Item_Text">
 				Clock Settings
@@ -435,14 +435,18 @@
 		<div class="Clock_Overlay_Top">
 			
 		</div>
+		<div class="Clock_Overlay_Bottom">
+			<h3 class="Clock_Overlay_Bottom_Battery" id="CL_Clock_Battery">
+				
+			</h3>
+		</div>
 	</div>
 	<div class="Clock_Main" id="tab_Clock">
 		<div class="Clock_Main_SettingsButton_Container">
-			<div class="Clock_Main_SettingsButton" onclick="Tabs_ChangeTab('ClockSettings')">
+			<div class="Clock_Main_SettingsButton" onclick="Tabs_ChangeTab('ClockSettings'), CL_Toggle_Overlays('Hidden')">
 				<img src="Assets/Icons/icon_settings.png" 	class="Clock_Main_SettingsButton_Icon" draggable="false">
 			</div>
 		</div>
-		
 		<div class="Clock_Main_Content" id="Clock_Main_Content" onclick="CL_FullScreen()">
 			<h1 class="Clock_Main_Text_Hours_Digit_1" id="CL_Clock_Main_Text_Hours_Digit_1" onclick="CL_FullScreen()">
 				0
@@ -457,6 +461,15 @@
 				1
 			</h1>
 			<h1 class="Clock_Main_Text_Minutes_Digit_2" id="CL_Clock_Main_Text_Minutes_Digit_2" onclick="CL_FullScreen()">
+				2
+			</h1>
+			<h1 class="Clock_Main_Text_Blinker" id="CL_Clock_Main_Text_Blinker" onclick="CL_FullScreen()">
+				:
+			</h1>
+			<h1 class="Clock_Main_Text_Minutes_Digit_1" id="CL_Clock_Main_Text_Seconds_Digit_1" onclick="CL_FullScreen()">
+				1
+			</h1>
+			<h1 class="Clock_Main_Text_Minutes_Digit_2" id="CL_Clock_Main_Text_Seconds_Digit_2" onclick="CL_FullScreen()">
 				2
 			</h1>
 		</div>

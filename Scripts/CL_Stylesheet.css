@@ -85,6 +85,16 @@
     z-index: 51;
     user-select: none;
     transition: 5s;
+    /* display: grid; */
+    /* grid-template-rows: auto auto auto; */
+}
+
+.Clock_Main_Top{
+    background-color: aliceblue;
+}
+
+.Clock_Main_Bottom{
+    background-color: aqua;
 }
 
 .Clock_Main[data-id="Gradient_Transition_Start_OldToNew"]{
@@ -421,3 +431,35 @@
     transition: var(--Element-Transition-Delay);
 }
 
+.Clock_Overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 54;
+    /* background-color: bisque; */
+}
+
+.Clock_Overlay_Bottom{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    height: 10vh;
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    
+}
+
+.Clock_Overlay_Bottom_Battery{
+    font-family: var(--CL-Clock-Text-Font);
+    color: var(--CL-Clock-Text-Color-Blinker);
+    font-size: 9vh;
+    margin: 0;
+    font-weight: normal;
+    animation-name: Clock_Blinker_Blink;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
