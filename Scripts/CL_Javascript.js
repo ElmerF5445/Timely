@@ -19,8 +19,19 @@ function releaseWakeLock() {
       }
 }
 
+var Clock_Second_Count = 0;
+
 function CL_Clock_Start_Time() {
-      console.log("Clock updated");
+
+      /*const targetTime = new Date("2024-01-15 20:10:00");
+      const now = new Date();
+      const differenceInMilliseconds = targetTime.getTime() - now.getTime();
+      var remainingSeconds = Math.floor((differenceInMilliseconds / 1000) % 60);
+      var remainingMinutes = Math.floor((differenceInMilliseconds / (1000 * 60)) % 60);
+      var remainingHours = Math.floor((differenceInMilliseconds / (1000 * 60 * 60)) % 24);
+      console.log("Remaining time: " + remainingHours + " : " + remainingMinutes + " : " + remainingSeconds);*/
+
+      // console.log("Clock updated");
       const today = new Date();
       let h = today.getHours();
       let m = today.getMinutes();
@@ -79,9 +90,9 @@ function CL_Clock_Start_Time() {
 		var AMPM = "PM";
 	}
 
-      if(document.getElementById("CL_Clock_Main_Text_Hours_Digit_1").innerText == "1" && document.getElementById("CL_Clock_Main_Text_Hours_Digit_2").innerText == "2"){
-            document.getElementById("CL_Clock_Battery").innerHTML = "Happy New Year 2024!";
-      }
+      // if(document.getElementById("CL_Clock_Main_Text_Hours_Digit_1").innerText == "1" && document.getElementById("CL_Clock_Main_Text_Hours_Digit_2").innerText == "2"){
+      //       document.getElementById("CL_Clock_Battery").innerHTML = "Happy New Year 2024!";
+      // }
 
       // navigator.getBattery().then(function(battery){
       //       var batteryLevel = battery.level * 100;
@@ -95,14 +106,17 @@ function CL_Clock_Start_Time() {
       document.getElementById("CL_Clock_Main_Text_Seconds_Digit_1").innerHTML = s.toString().charAt(0);
       document.getElementById("CL_Clock_Main_Text_Seconds_Digit_2").innerHTML = s.toString().charAt(1);
 
-      // Shifts number position randomly betwen -5 and 5
-      // var randomX = (Math.random() - 0.5) * 10; 
-      // var randomY = (Math.random() - 0.5) * 10; 
+      Clock_Second_Count++;
+      if (Clock_Second_Count > 59){
+            // Shifts number position randomly betwen -5 and 5
+            var randomX = (Math.random() - 0.5) * 10; 
+            var randomY = (Math.random() - 0.5) * 10; 
 
-      // document.getElementById("Clock_Main_Content").style.transform = "translate(" + randomX + "px, " + randomY + "px)";
-      // document.getElementById("Clock_Overlay").style.transform = "translate(" + randomX + "px, " + randomY + "px)";
+            document.getElementById("Clock_Main_Content").style.transform = "translate(" + randomX + "px, " + randomY + "px)";
+            document.getElementById("Clock_Overlay").style.transform = "translate(" + randomX + "px, " + randomY + "px)";
 
-     
+            Clock_Second_Count = 0;
+      }
 
 	// setTimeout(CL_Clock_Start_Time, 60000);
 	setTimeout(CL_Clock_Start_Time, 1000);
