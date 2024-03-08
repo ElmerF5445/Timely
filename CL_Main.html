@@ -217,7 +217,7 @@
 					placeholder="Enter console command and press Enter"></input>
 			</div>
 		</div>
-		<div class="TargetArea_CornerButtons">
+		<div class="TargetArea_CornerButtons" style="display: none">
 			<div class="CornerButtons" id="pageElement_CornerButtons">
 				<img src="Assets/Icons/icon_downArrow.png" class="CornerButtons_Button"
 					onclick="scrollToPosition('bottom')"></img>
@@ -436,9 +436,25 @@
 			
 		</div>
 		<div class="Clock_Overlay_Bottom">
-			<h3 class="Clock_Overlay_Bottom_Battery" id="CL_Clock_Battery">
-				
-			</h3>
+			<!-- <h3 class="Clock_Overlay_Bottom_Battery" id="CL_Clock_Battery">
+				45%
+			</h3> -->
+			<div class="Clock_Pomodoro">
+				<div class="Clock_Pomodoro_Bars_Counter" onclick="CL_Pomodoro_SkipStage()">
+					<div class="Clock_Pomodoro_Bars_Counter_Item" id="Clock_Pomodoro_Bars_Counter_Item_1"></div>
+					<div class="Clock_Pomodoro_Bars_Counter_Item" id="Clock_Pomodoro_Bars_Counter_Item_2"></div>
+					<div class="Clock_Pomodoro_Bars_Counter_Item" id="Clock_Pomodoro_Bars_Counter_Item_3"></div>
+					<div class="Clock_Pomodoro_Bars_Counter_Item" id="Clock_Pomodoro_Bars_Counter_Item_4"></div>
+				</div>
+				<div class="Clock_Pomodoro_Status" onclick="CL_Pomodoro_Start()">
+					<h1 class="Clock_Pomodoro_Status_Title" id="Clock_Pomodoro_Status_Title">
+						Start
+					</h1>
+					<h4 class="Clock_Pomodoro_Status_Remaining" id="Clock_Pomodoro_Status_Remaining">
+						Press to start Pomodoro timer
+					</h4>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="Clock_Main" id="tab_Clock">

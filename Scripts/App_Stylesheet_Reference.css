@@ -18,6 +18,10 @@
 	--CL-Clock-Animation-TimingFunction-Blinker: ease-in-out;
 	--CL-Clock-Background-Gradient-Old: "linear-gradient(45deg, #27038a 0%, #27038a 100%)";
 	--CL-Clock-Background-Gradient-New: "linear-gradient(45deg, #27038a 0%, #27038a 100%)";
+	--CL-Clock-Pomodoro-Counter-Color-Active: green;
+	--CL-Clock-Pomodoro-Counter-Color-Inactive: "black";
+	--CL-Clock-Pomodoro-Status-Title-Text-Color: green;
+	--CL-Clock-Pomodoro-Status-Remaining-Text-Color: green;
 	--Debug-ElementOutline: none;
 	--BG-Img-Wallpaper-Main: url(../Assets/Background/BG_SplashScreen.jpg);
 	--BG-Img-Wallpaper-Clock: url(../Assets/Background/BG_SplashScreen.jpg);

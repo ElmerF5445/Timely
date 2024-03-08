@@ -117,7 +117,7 @@ function CL_Clock_Start_Time() {
 
             Clock_Second_Count = 0;
       }
-
+      CL_Pomodoro_Update_Time();
 	// setTimeout(CL_Clock_Start_Time, 60000);
 	setTimeout(CL_Clock_Start_Time, 1000);
 }
@@ -367,4 +367,97 @@ function CL_Toggle_Overlays(State){
       } else {
             document.getElementById("Clock_Overlay").style.display = "none";
       }
+}
+
+var CL_Pomodoro_TimerAlreadyStarted = false;
+function CL_Pomodoro_Start(){
+      if (CL_Pomodoro_TimerAlreadyStarted == false){
+            CL_Pomodoro_TimerAlreadyStarted == true;
+            document.getElementById("Clock_Pomodoro_Status_Title").innerHTML = "Work";
+      }
+      CL_Pomodoro_ToggleState();
+}
+
+var CL_Pomodoro_PlayState = 0;
+function CL_Pomodoro_ToggleState(){
+      if (CL_Pomodoro_PlayState == 1){
+            CL_Pomodoro_PlayState = 0;
+      } else if (CL_Pomodoro_PlayState == 0){
+            CL_Pomodoro_PlayState = 1;
+      }
+}
+
+var CL_Pomodoro_Time_Mins = 25;
+var CL_Pomodoro_Time_Secs = 0;
+function CL_Pomodoro_Update_Time(){
+      if (CL_Pomodoro_PlayState == 1){
+            CL_Pomodoro_Time_Secs--;
+            if (CL_Pomodoro_Time_Mins != 0 && CL_Pomodoro_Time_Secs < 0){
+                  CL_Pomodoro_Time_Mins--;
+                  CL_Pomodoro_Time_Secs = 59;
+            }
+            if (CL_Pomodoro_Time_Mins == 0 && CL_Pomodoro_Time_Secs <= 0){
+                  CL_Pomodoro_Update_Status();
+            }
+            if (CL_Pomodoro_Time_Secs >= 10){
+                  document.getElementById("Clock_Pomodoro_Status_Remaining").innerHTML = CL_Pomodoro_Time_Mins + ":" +  CL_Pomodoro_Time_Secs + " remaining";
+            } else {
+                  document.getElementById("Clock_Pomodoro_Status_Remaining").innerHTML = CL_Pomodoro_Time_Mins + ":" +  ("0" + CL_Pomodoro_Time_Secs) + " remaining";
+            }
+      }
+}
+
+var CL_Pomodoro_Status = 2; // 1 - Work, 2 - Break, 3 - Long break
+var CL_Pomodoro_Status_WorkCount = 1;
+function CL_Pomodoro_Update_Status(){
+      if (CL_Pomodoro_Status == 1){
+            CL_Pomodoro_Status = 2;
+            CL_Pomodoro_Time_Mins = 5;
+            CL_Pomodoro_Time_Secs = 0;
+            document.getElementById("Clock_Pomodoro_Status_Title").innerHTML = "Break";
+            if (CL_Pomodoro_Status_WorkCount < 4){
+                  CL_Pomodoro_Status_WorkCount++;
+            } else {
+                  CL_Pomodoro_Status_WorkCount = 0;
+                  CL_Pomodoro_Status = 3;
+                  CL_Pomodoro_Time_Mins = 15;
+                  CL_Pomodoro_Time_Secs = 0;
+                  document.getElementById("Clock_Pomodoro_Status_Title").innerHTML = "Long break";
+            }
+      } else if (CL_Pomodoro_Status == 2){
+            CL_Pomodoro_Status = 1;
+            CL_Pomodoro_Time_Mins = 25;
+            CL_Pomodoro_Time_Secs = 0;
+            document.getElementById("Clock_Pomodoro_Status_Title").innerHTML = "Work";
+      }
+      if (CL_Pomodoro_Status_WorkCount == 1){
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_1").setAttribute("State", "Active");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_2").setAttribute("State", "Inactive");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_3").setAttribute("State", "Inactive");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_4").setAttribute("State", "Inactive");
+      } else if (CL_Pomodoro_Status_WorkCount == 2){
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_1").setAttribute("State", "Active");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_2").setAttribute("State", "Active");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_3").setAttribute("State", "Inactive");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_4").setAttribute("State", "Inactive");
+      } else if (CL_Pomodoro_Status_WorkCount == 3){
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_1").setAttribute("State", "Active");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_2").setAttribute("State", "Active");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_3").setAttribute("State", "Active");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_4").setAttribute("State", "Inactive");
+      } else if (CL_Pomodoro_Status_WorkCount == 4){
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_1").setAttribute("State", "Active");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_2").setAttribute("State", "Active");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_3").setAttribute("State", "Active");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_4").setAttribute("State", "Active");
+      } else if (CL_Pomodoro_Status_WorkCount == 0){
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_1").setAttribute("State", "Inactive");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_2").setAttribute("State", "Inactive");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_3").setAttribute("State", "Inactive");
+            document.getElementById("Clock_Pomodoro_Bars_Counter_Item_4").setAttribute("State", "Inactive");
+      }
+}
+
+function CL_Pomodoro_SkipStage(){
+      CL_Pomodoro_Update_Status();
 }
