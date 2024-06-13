@@ -1,0 +1,314 @@
+.TL_Clock{
+    background: black;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: absolute;
+    top: 0;
+    border: solid #00000000 5px;
+    /* transition: opacity 0.5s all var(--Element-); */
+}
+
+.TL_Clock[State="Active"]{
+    opacity: 100%;
+    pointer-events: all;
+    display: grid;
+    /* transition: opacity 0.5s; */
+}
+
+.TL_Clock[State="Inactive"]{
+    opacity: 0%;
+    pointer-events: none;
+    /* transition: opacity 0.3s; */
+}
+
+.TL_Clock[State="Inactive"] > *{
+    opacity: 0%;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.TL_Clock_Overlay_Back{
+    position: fixed;
+    width: 100%;
+    height: auto;
+    top: 0;
+    opacity: 0%;
+    display: flex;
+    flex-direction: row;
+}
+
+.TL_Clock_Overlay_Back:hover{
+    opacity: 100%;
+}
+
+.TL_Clock_Top{
+    background-color: red;
+}
+
+.TL_Clock_Bottom{
+    background-color: blue;
+}
+
+.TL_Clock_Main{
+    background-color: var(--TL-Clock-Time-Background-Color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.TL_Clock_Main_Time{
+    /* background-color: bisque; */
+    display: flex;
+    flex-direction: row;
+    /* position: absolute; */
+    pointer-events: none;
+}
+
+.TL_Clock_Main_Time > h1{
+    -webkit-text-stroke-color: #00000000;
+    -webkit-text-stroke-width: 3px;
+    transition: all var(--Element-Transition-Delay), color 3s, -webkit-text-stroke-color 3s;
+}
+
+.TL_Clock_Main_Time_Hour_1{
+    color: var(--TL-Clock-Time-Hour-1-Color);
+    font-size: var(--TL-Clock-Time-Hour-1-Size);
+    font-family: var(--TL-Clock-Time-Hour-1-Font);
+}
+
+.TL_Clock_Main_Time_Hour_2{
+    color: var(--TL-Clock-Time-Hour-2-Color);
+    font-size: var(--TL-Clock-Time-Hour-2-Size);
+    font-family: var(--TL-Clock-Time-Hour-2-Font);
+}
+
+.TL_Clock_Main_Time_Hour_Colon{
+    color: var(--TL-Clock-Time-Hour-Colon-Color);
+    font-size: var(--TL-Clock-Time-Hour-Colon-Size);
+    font-family: var(--TL-Clock-Time-Hour-Colon-Font);
+}
+
+.TL_Clock_Main_Time_Minute_1{
+    color: var(--TL-Clock-Time-Minute-1-Color);
+    font-size: var(--TL-Clock-Time-Minute-1-Size);
+    font-family: var(--TL-Clock-Time-Minute-1-Font);
+}
+
+.TL_Clock_Main_Time_Minute_2{
+    color: var(--TL-Clock-Time-Minute-2-Color);
+    font-size: var(--TL-Clock-Time-Minute-2-Size);
+    font-family: var(--TL-Clock-Time-Minute-2-Font);
+}
+
+.TL_Clock_Main_Time_Minute_Colon{
+    color: var(--TL-Clock-Time-Minute-Colon-Color);
+    font-size: var(--TL-Clock-Time-Minute-Colon-Size);
+    font-family: var(--TL-Clock-Time-Minute-Colon-Font);
+}
+
+.TL_Clock_Main_Time_Second_1{
+    color: var(--TL-Clock-Time-Second-1-Color);
+    font-size: var(--TL-Clock-Time-Second-1-Size);
+    font-family: var(--TL-Clock-Time-Second-1-Font);
+}
+
+.TL_Clock_Main_Time_Second_2{
+    color: var(--TL-Clock-Time-Second-2-Color);
+    font-size: var(--TL-Clock-Time-Second-2-Size);
+    font-family: var(--TL-Clock-Time-Second-2-Font);
+}
+
+/* Inactive sleeping */
+.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Hour_1{
+    color: #00000000;
+    -webkit-text-stroke-color: var(--TL-Clock-Time-Hour-1-Color);
+}
+
+.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Hour_2{
+    color: #00000000;
+    -webkit-text-stroke-color: var(--TL-Clock-Time-Hour-2-Color);
+}
+
+.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Hour_Colon{
+    color: #00000000;
+    -webkit-text-stroke-color: var(--TL-Clock-Time-Hour-Colon-Color);
+}
+
+.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Minute_1{
+    color: #00000000;
+    -webkit-text-stroke-color: var(--TL-Clock-Time-Minute-1-Color);
+}
+
+.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Minute_2{
+    color: #00000000;
+    -webkit-text-stroke-color: var(--TL-Clock-Time-Minute-2-Color);
+}
+
+.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Minute_Colon{
+    color: #00000000;
+    -webkit-text-stroke-color: var(--TL-Clock-Time-Minute-Colon-Color);
+}
+
+.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Second_1{
+    color: #00000000;
+    -webkit-text-stroke-color: var(--TL-Clock-Time-Second-1-Color);
+}
+
+.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Second_2{
+    color: #00000000;
+    -webkit-text-stroke-color: var(--TL-Clock-Time-Second-2-Color);
+}
+
+
+.TL_Settings_Clock_Preview{
+    background-color: var(--TL-Clock-Time-Background-Color);
+    height: 100px;
+    margin-top: 15px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TL_Settings_Clock_Preview > .TL_Clock_Main_Time{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TL_Settings_Clock_Preview > .TL_Clock_Main_Time > h1{
+    font-size: 70px;
+    margin: 0;
+}
+
+@media only screen and (max-width: 400px){
+    .TL_Settings_Clock_Preview > .TL_Clock_Main_Time > h1{
+        font-size: 30px;
+        margin: 0;
+    }
+
+    .TL_Settings_Clock_Preview{
+        height: 50px;
+    }
+    
+    .TL_Settings_Clock_Preview > .TL_Clock_Main_Time{
+        height: 50px;
+    }
+}
+
+.TL_Settings_Fonts{
+    display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.TL_Settings_Fonts_Item{
+    padding: 10px;
+    font-size: 3em;
+}
+
+.TL_Settings_Fonts_Item[Font="Raleway"]{
+    font-family: Raleway;
+}
+
+.TL_Settings_Fonts_Item[Font="Roboto"]{
+    font-family: Roboto;
+}
+
+.TL_Settings_Fonts_Item[Font="Alexandria"]{
+    font-family: Alexandria;
+}
+
+.TL_Settings_Fonts_Item[Font="Awery"]{
+    font-family: Awery;
+}
+.TL_Settings_Fonts_Item[Font="Digital_Dismay"]{
+    font-family: Digital_Dismay;
+}
+
+.TL_Settings_Fonts_Item[Font="Futura"]{
+    font-family: Futura;
+}
+
+.TL_Settings_Fonts_Item[Font="Gas"]{
+    font-family: Gas;
+}
+
+.TL_Settings_Fonts_Item[Font="Klarissa"]{
+    font-family: Klarissa;
+}
+
+.TL_Settings_Fonts_Item[Font="Library"]{
+    font-family: Library;
+}
+
+.TL_Settings_Fonts_Item[Font="Middlecase"]{
+    font-family: Middlecase;
+}
+.TL_Settings_Fonts_Item[Font="Mini_Pixel"]{
+    font-family: Mini_Pixel;
+}
+
+.TL_Settings_Fonts_Item[Font="One"]{
+    font-family: One;
+}
+
+.TL_Clock[Mode="Settings_Sizer"]{
+    transform: scale(80%);
+    top: -50px;
+    border: solid var(--Accent-Color) 5px;
+}
+
+.TL_Clock[Mode="Settings_Layerer"]{
+    transform: scale(0.7) translateX(-20%);
+    border: solid var(--Accent-Color) 5px;
+}
+
+.TL_Clock[Mode="Settings_Sizer"] > .TL_Clock_Overlay_Back{
+    display: none;
+}
+
+.TL_Clock_Settings{
+    background-color: var(--BG-Color-Opacitated);
+    backdrop-filter: var(--Element-BackdropBlur);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0%;
+    pointer-events: none;
+}
+
+.TL_Clock_Settings[State="Active"]{
+    opacity: 100%;
+    pointer-events: all;
+}
+
+.TL_Clock_Settings[State="Inactive"]{
+    opacity: 0%;
+    pointer-events: none;
+}
+
+.TL_Clock_Settings_Sizer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 75px;
+    padding: 10px;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.TL_Clock_Settings_Sizer > input#Input_TL_Setting_Sizing{
+    width: 95%;
+}
+
+.TL_Clock_Settings_Sizer > input#Input_TL_Setting_Sizing_Text{
+    width: auto;
+}
