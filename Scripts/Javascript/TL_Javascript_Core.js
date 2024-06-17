@@ -108,6 +108,29 @@ let TL_Clock_Settings = {
     Font: {
         General: "One",
         Size: "40"
+    },
+    General: {
+        "InactiveSleeping": "Active",
+        "InactiveSleeping_Timeout": 1,
+        "ClockShifting": "Active",
+        "ClockShifting_Distance": 5,
+        "ColonBlinking": "Active",
+        "ColonBlinking_Fading": "Active",
+        "ColonBlinking_Duration": 1
+    },
+    Elements:{
+        "Hours": {
+            "Visible": "Active"
+        },
+        "Minutes": {
+            "Visible": "Active"
+        },
+        "Seconds": {
+            "Visible": "Active"
+        },
+        "Colons": {
+            "Visible": "Active"
+        }
     }
 }
 
@@ -140,6 +163,71 @@ function TL_Clock_Settings_Load(){
     // Font
     Root_Stylesheet.style.setProperty('--TL-Clock-Time-General-Font', TL_Clock_Settings.Font.General);
     Root_Stylesheet.style.setProperty('--TL-Clock-Time-General-Size', TL_Clock_Settings.Font.Size + "vh");
+    // General
+    // Inactive Sleeping
+    if (TL_Clock_Settings.General.InactiveSleeping == "Active"){
+        clearTimeout(TL_Clock_InactiveSleeping_TimeoutID);
+        TL_Clock_InactiveSleeping_TimeoutID = setTimeout(TL_Clock_InactiveSleeping_Update_Timer, (TL_Clock_Settings.General.InactiveSleeping_Timeout * 1000));
+    } else {
+        clearTimeout(TL_Clock_InactiveSleeping_TimeoutID);
+        Element_Attribute_Set("TL_Clock_Main", "Mode", "Active");
+    }
+    // Clock Shifting
+    if (TL_Clock_Settings.General.InactiveSleeping == "Active"){
+        clearTimeout(TL_Clock_ClockShifting_TimeoutID);
+        TL_Clock_ClockShifting_TimeoutID = setTimeout(TL_Clock_ClockShifting_Update_Timer, 300000);
+    } else {
+        clearTimeout(TL_Clock_ClockShifting_TimeoutID);
+    }
+    // Colon Blinking
+    if (TL_Clock_Settings.General.ColonBlinking == "Active"){
+        Root_Stylesheet.style.setProperty('--TL-Clock-Time-General-ColonBlinking', "Colon_Blink");
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_Colon", "Colon_Blink", "1s", "forwards", "infinite", 0);
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_Colon", "Colon_Blink", "1s", "forwards", "infinite", 0);
+        Root_Stylesheet.style.setProperty('--TL-Clock-Time-General-ColonBlinking-Duration', TL_Clock_Settings.General.ColonBlinking_Duration + "s");
+        if (TL_Clock_Settings.General.ColonBlinking_Fading == "Active"){
+            Root_Stylesheet.style.setProperty('--TL-Clock-Time-General-ColonBlinking-TimingFunction', "ease-in-out");
+        } else {
+            Root_Stylesheet.style.setProperty('--TL-Clock-Time-General-ColonBlinking-TimingFunction', "steps(1)");
+        }
+    } else {
+        Root_Stylesheet.style.setProperty('--TL-Clock-Time-General-ColonBlinking', "Colon_Stare");
+    }
+    // Clock element visibility
+    if (TL_Clock_Settings.Elements.Colons.Visible != "Active"){
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_Colon", "Clock_Hide", "1s", "forwards", 1, 0);
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_Colon", "Clock_Hide", "1s", "forwards", 1, 0);
+    }
+    if (TL_Clock_Settings.Elements.Hours.Visible == "Active"){
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_1", "Clock_Show", "1s", "forwards", 1, 0);
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_2", "Clock_Show", "1s", "forwards", 1, 0);
+        if (TL_Clock_Settings.Elements.Colons.Visible == "Active"){
+            Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_Colon", "Clock_Show", "1s", "forwards", 1, 0);
+        }
+    } else {
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_1", "Clock_Hide", "1s", "forwards", 1, 0);
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_2", "Clock_Hide", "1s", "forwards", 1, 0);
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_Colon", "Clock_Hide", "1s", "forwards", 1, 0);
+    }
+    if (TL_Clock_Settings.Elements.Minutes.Visible == "Active"){
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_1", "Clock_Show", "1s", "forwards", 1, 0);
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_2", "Clock_Show", "1s", "forwards", 1, 0);
+    } else {
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_1", "Clock_Hide", "1s", "forwards", 1, 0);
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_2", "Clock_Hide", "1s", "forwards", 1, 0);
+    }
+    if (TL_Clock_Settings.Elements.Seconds.Visible == "Active"){
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Second_1", "Clock_Show", "1s", "forwards", 1, 0);
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Second_2", "Clock_Show", "1s", "forwards", 1, 0);
+        if (TL_Clock_Settings.Elements.Colons.Visible == "Active"){
+            Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_Colon", "Clock_Show", "1s", "forwards", 1, 0);
+        }
+    } else {
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Second_1", "Clock_Hide", "1s", "forwards", 1, 0);
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Second_2", "Clock_Hide", "1s", "forwards", 1, 0);
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_Colon", "Clock_Hide", "1s", "forwards", 1, 0);
+    }
+    
     TL_Clock_Settings_Load_Values();
 }
 
@@ -168,9 +256,23 @@ function TL_Clock_Settings_Load_Values(){
     document.getElementById("Input_TL_Setting_Sizing").value = TL_Clock_Settings.Font.Size;
     // Settings - Font size input
     document.getElementById("Input_TL_Setting_Sizing_Text").value = TL_Clock_Settings.Font.Size;
+    // General
+    Element_Attribute_Set("Toggle_TL_Setting_InactiveSleeping", "State", TL_Clock_Settings.General.InactiveSleeping);
+    document.getElementById("Input_TL_Setting_ScreenTimeout").value = TL_Clock_Settings.General.InactiveSleeping_Timeout;
+    Element_Attribute_Set("Toggle_TL_Setting_ClockShifting", "State", TL_Clock_Settings.General.ClockShifting);
+    document.getElementById("Input_TL_Setting_ClockShifting_Distance").value = TL_Clock_Settings.General.ClockShifting_Distance;
+    Element_Attribute_Set("Toggle_TL_Setting_ColonBlinking", "State", TL_Clock_Settings.General.ColonBlinking);
+    Element_Attribute_Set("Toggle_TL_Setting_ColonBlinking_Animate", "State", TL_Clock_Settings.General.ColonBlinking_Fading);
+    document.getElementById("Input_TL_Setting_ColonBlinking_Duration").value = TL_Clock_Settings.General.ColonBlinking_Duration;
+    // Clock element visibility
+    Element_Attribute_Set("Toggle_TL_Setting_ClockElements_Hours", "State", TL_Clock_Settings.Elements.Hours.Visible);
+    Element_Attribute_Set("Toggle_TL_Setting_ClockElements_Minutes", "State", TL_Clock_Settings.Elements.Minutes.Visible);
+    Element_Attribute_Set("Toggle_TL_Setting_ClockElements_Seconds", "State", TL_Clock_Settings.Elements.Seconds.Visible);
+    Element_Attribute_Set("Toggle_TL_Setting_ClockElements_Colon", "State", TL_Clock_Settings.Elements.Colons.Visible);
 }
 
 function TL_Clock_Settings_Save(){
+    Toasts_CreateToast("Assets/Icons/iconNew_save.png", "Saved changes", "Your changes has been saved and applied");
     // Colors
     TL_Clock_Settings.Color.Hour_1 = document.getElementById("Input_TL_Setting_Color_Hour_Digit_1").value;
     TL_Clock_Settings.Color.Hour_2 = document.getElementById("Input_TL_Setting_Color_Hour_Digit_2").value;
@@ -183,9 +285,30 @@ function TL_Clock_Settings_Save(){
     TL_Clock_Settings.Color.Background = document.getElementById("Input_TL_Setting_Color_Background").value;
     // Font size
     TL_Clock_Settings.Font.Size = document.getElementById("Input_TL_Setting_Sizing_Text").value;
+    // General
+    // Inactive sleeping
+    TL_Clock_Settings.General.InactiveSleeping = Element_Attribute_Get("Toggle_TL_Setting_InactiveSleeping", "State");
+    TL_Clock_Settings.General.InactiveSleeping_Timeout = document.getElementById("Input_TL_Setting_ScreenTimeout").value;
+    // Clock shifting
+    TL_Clock_Settings.General.ClockShifting = Element_Attribute_Get("Toggle_TL_Setting_ClockShifting", "State");
+    TL_Clock_Settings.General.ClockShifting_Distance = document.getElementById("Input_TL_Setting_ClockShifting_Distance").value; 
+    // Colon blinking   
+    TL_Clock_Settings.General.ColonBlinking = Element_Attribute_Get("Toggle_TL_Setting_ColonBlinking", "State");
+    TL_Clock_Settings.General.ColonBlinking_Fading = Element_Attribute_Get("Toggle_TL_Setting_ColonBlinking_Animate", "State");
+    TL_Clock_Settings.General.ColonBlinking_Duration = document.getElementById("Input_TL_Setting_ColonBlinking_Duration").value;
+    // Clock element visibility
+    TL_Clock_Settings.Elements.Hours.Visible = Element_Attribute_Get("Toggle_TL_Setting_ClockElements_Hours", "State");
+    TL_Clock_Settings.Elements.Minutes.Visible = Element_Attribute_Get("Toggle_TL_Setting_ClockElements_Minutes", "State");
+    TL_Clock_Settings.Elements.Seconds.Visible = Element_Attribute_Get("Toggle_TL_Setting_ClockElements_Seconds", "State");
+    TL_Clock_Settings.Elements.Seconds.Colons = Element_Attribute_Get("Toggle_TL_Setting_ClockElements_Colon", "State");
     // Save to local storage
     localStorage.setItem(TL_Clock_Settings_Key, JSON.stringify(TL_Clock_Settings));
     TL_Clock_Settings_Load();
+}
+
+function TL_Clock_Settings_Reset(){
+    localStorage.removeItem(TL_Clock_Settings_Key);
+    location.reload();
 }
 
 function TL_Clock_Settings_Set_Font(Font){
@@ -207,4 +330,31 @@ function TL_Clock_Settings_Close_Sizer(){
         TL_Close_Clock();
         Element_Attribute_Set("TL_Clock_Settings", "State", "Inactive");
     }, 300);
+}
+
+let TL_Clock_InactiveSleeping_TimeoutID;
+function TL_Clock_InactiveSleeping_Update_Timer(){
+    if (TL_Clock_Settings.General.InactiveSleeping == "Active"){
+        if (Element_Attribute_Get("TL_Clock_Main", "Mode") == "Active" || Element_Attribute_Get("TL_Clock_Main_Time", "Mode") == null){
+            Element_Attribute_Set("TL_Clock_Main", "Mode", "Inactive");
+        }
+        setTimeout(TL_Clock_InactiveSleeping_Update_Timer, (TL_Clock_Settings.General.InactiveSleeping_Timeout * 1000));
+    }
+}
+
+let TL_Clock_ClockShifting_TimeoutID;
+function TL_Clock_ClockShifting_Update_Timer(){
+    if (TL_Clock_Settings.General.ClockShifting == "Active"){
+        document.getElementById("TL_Clock_Main").style.transform = null;
+        var TL_Clock_ClockShifting_Offset_X = (Math.random() * TL_Clock_Settings.General.ClockShifting_Distance) * 2 - 1;
+        var TL_Clock_ClockShifting_Offset_Y = (Math.random() * TL_Clock_Settings.General.ClockShifting_Distance) * 2 - 1;
+        if (Math.random() >= 0.5){
+            TL_Clock_ClockShifting_Offset_X = "-" + TL_Clock_ClockShifting_Offset_X;
+        }
+        if (Math.random() >= 0.5){
+            TL_Clock_ClockShifting_Offset_Y = "-" + TL_Clock_ClockShifting_Offset_Y;
+        }
+        document.getElementById("TL_Clock_Main").style.transform = `translate(${TL_Clock_ClockShifting_Offset_X}px, ${TL_Clock_ClockShifting_Offset_Y}px`;
+    }
+    setTimeout(TL_Clock_ClockShifting_Update_Timer, 300000);
 }

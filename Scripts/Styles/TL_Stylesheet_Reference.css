@@ -62,6 +62,9 @@
     --TL-Clock-Time-General-Size: 40vh;
     --TL-Clock-Time-General-Font: Digital_Dismay;
     --TL-Clock-Time-General-Font_Weight: 100 900;
+    --TL-Clock-Time-General-ColonBlinking: Colon_Blink;
+    --TL-Clock-Time-General-ColonBlinking-Duration: 2s;
+    --TL-Clock-Time-General-ColonBlinking-TimingFunction: steps(1);
     /* Hour 1 */
     --TL-Clock-Time-Hour-1-Color: var(--TL-Clock-Time-General-Color);
     --TL-Clock-Time-Hour-1-Size: var(--TL-Clock-Time-General-Size);

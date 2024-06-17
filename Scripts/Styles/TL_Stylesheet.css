@@ -38,6 +38,7 @@
     opacity: 0%;
     display: flex;
     flex-direction: row;
+    z-index: 500;
 }
 
 .TL_Clock_Overlay_Back:hover{
@@ -90,6 +91,10 @@
     color: var(--TL-Clock-Time-Hour-Colon-Color);
     font-size: var(--TL-Clock-Time-Hour-Colon-Size);
     font-family: var(--TL-Clock-Time-Hour-Colon-Font);
+    animation-name: var(--TL-Clock-Time-General-ColonBlinking);
+    animation-duration: var(--TL-Clock-Time-General-ColonBlinking-Duration);
+    animation-timing-function: var(--TL-Clock-Time-General-ColonBlinking-TimingFunction);
+    animation-iteration-count: infinite;
 }
 
 .TL_Clock_Main_Time_Minute_1{
@@ -108,6 +113,10 @@
     color: var(--TL-Clock-Time-Minute-Colon-Color);
     font-size: var(--TL-Clock-Time-Minute-Colon-Size);
     font-family: var(--TL-Clock-Time-Minute-Colon-Font);
+    animation-name: var(--TL-Clock-Time-General-ColonBlinking);
+    animation-duration: var(--TL-Clock-Time-General-ColonBlinking-Duration);
+    animation-timing-function: var(--TL-Clock-Time-General-ColonBlinking-TimingFunction);
+    animation-iteration-count: infinite;
 }
 
 .TL_Clock_Main_Time_Second_1{
@@ -122,43 +131,58 @@
     font-family: var(--TL-Clock-Time-Second-2-Font);
 }
 
+@keyframes Colon_Blink{
+    0%{
+        opacity: 0%;
+    }
+    50%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+
 /* Inactive sleeping */
-.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Hour_1{
+.TL_Clock_Main[Mode="Inactive"]{
+    background-color: black;
+}
+.TL_Clock_Main[Mode="Inactive"] > .TL_Clock_Main_Time > .TL_Clock_Main_Time_Hour_1{
     color: #00000000;
     -webkit-text-stroke-color: var(--TL-Clock-Time-Hour-1-Color);
 }
 
-.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Hour_2{
+.TL_Clock_Main[Mode="Inactive"] > .TL_Clock_Main_Time > .TL_Clock_Main_Time_Hour_2{
     color: #00000000;
     -webkit-text-stroke-color: var(--TL-Clock-Time-Hour-2-Color);
 }
 
-.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Hour_Colon{
+.TL_Clock_Main[Mode="Inactive"] > .TL_Clock_Main_Time > .TL_Clock_Main_Time_Hour_Colon{
     color: #00000000;
     -webkit-text-stroke-color: var(--TL-Clock-Time-Hour-Colon-Color);
 }
 
-.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Minute_1{
+.TL_Clock_Main[Mode="Inactive"] > .TL_Clock_Main_Time > .TL_Clock_Main_Time_Minute_1{
     color: #00000000;
     -webkit-text-stroke-color: var(--TL-Clock-Time-Minute-1-Color);
 }
 
-.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Minute_2{
+.TL_Clock_Main[Mode="Inactive"] > .TL_Clock_Main_Time > .TL_Clock_Main_Time_Minute_2{
     color: #00000000;
     -webkit-text-stroke-color: var(--TL-Clock-Time-Minute-2-Color);
 }
 
-.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Minute_Colon{
+.TL_Clock_Main[Mode="Inactive"] > .TL_Clock_Main_Time > .TL_Clock_Main_Time_Minute_Colon{
     color: #00000000;
     -webkit-text-stroke-color: var(--TL-Clock-Time-Minute-Colon-Color);
 }
 
-.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Second_1{
+.TL_Clock_Main[Mode="Inactive"] > .TL_Clock_Main_Time > .TL_Clock_Main_Time_Second_1{
     color: #00000000;
     -webkit-text-stroke-color: var(--TL-Clock-Time-Second-1-Color);
 }
 
-.TL_Clock_Main_Time[Mode="Inactive"] > .TL_Clock_Main_Time_Second_2{
+.TL_Clock_Main[Mode="Inactive"] > .TL_Clock_Main_Time > .TL_Clock_Main_Time_Second_2{
     color: #00000000;
     -webkit-text-stroke-color: var(--TL-Clock-Time-Second-2-Color);
 }
@@ -291,6 +315,12 @@
 .TL_Clock_Settings[State="Inactive"]{
     opacity: 0%;
     pointer-events: none;
+
+}
+
+.TL_Clock_Settings[State="Inactive"] > *{
+    opacity: 0%;
+    pointer-events: none;
 }
 
 .TL_Clock_Settings_Sizer{
@@ -311,4 +341,26 @@
 
 .TL_Clock_Settings_Sizer > input#Input_TL_Setting_Sizing_Text{
     width: auto;
+}
+
+@keyframes Clock_Hide{
+    0% {
+        opacity: 100%;
+        display: unset;
+    }
+    100%{
+        opacity: 0%;
+        display: none;
+    }
+}
+
+@keyframes Clock_Show{
+    0% {
+        opacity: 0%;
+        display: unset;
+    }
+    100%{
+        opacity: 100%;
+        display: unset;
+    }
 }

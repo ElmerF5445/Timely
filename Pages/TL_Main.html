@@ -268,6 +268,26 @@
 				</div>
 			</div>
 		</div>
+        <div class="Modal" id="TL_Settings_Reset">
+			<div class="Modal_TitleBar">
+				<h2 class="Modal_TitleBar_Title">
+					Reset settings?
+				</h2>
+			</div>
+			<div class="Modal_Content">
+				<p class="General_Paragraph">
+					All configurations will be lost and will go back to the default settings. Settings can't be restored once it is reset.
+				</p>
+			</div>
+			<div class="Modal_Content_Bottom">
+				<div class="Subwindow_Bottom_Button_SecondaryAction" onclick="Subwindows_Close('TL_Settings_Reset')">
+					Cancel
+				</div>
+				<div class="Subwindow_Bottom_Button_PrimaryAction" onclick="TL_Clock_Settings_Reset()">
+					Reset
+				</div>
+			</div>
+		</div>
     </div>
     <div class="Toasts" Position="Right" id="Toasts">
         <!-- <div class="Toast">
@@ -423,8 +443,8 @@
             <div class="TL_Clock_Top">
                 
             </div>
-            <div class="TL_Clock_Main">
-                <div class="TL_Clock_Main_Time">
+            <div class="TL_Clock_Main" id="TL_Clock_Main" onclick="Element_Attribute_Set('TL_Clock_Main', 'Mode', 'Active')">
+                <div class="TL_Clock_Main_Time" id="TL_Clock_Main_Time">
                     <h1 class="TL_Clock_Main_Time_Hour_1" id="TL_Clock_Main_Time_Hour_1">
                         1
                     </h1>
@@ -586,10 +606,21 @@
         <main class="MainContent" id="MainContent" Style_Margin_Header="Enabled" Style_Margin_Ribbon="Enabled" Style_Margin_Sidebar="Enabled">
             <div class="Content" id="Content" Style_Margin="Enabled" Tabs_CurrentTab="">
                 <div class="Tab_Container_Content_Item Content_Item" id="tab_General">
-                    <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
-                        <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
-                        Go back to clock
+                    <div style="display: flex">
+                       <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
+                            <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
+                            Go back to clock
+                        </div>
+                        <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Clock_Settings_Save()">
+                            <img class='General_Button_Icon' src='Assets/Icons/iconNew_save.png' draggable='false' loading='lazy' Position="Left"/>
+                            Save changes
+                        </div>
+                        <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="Subwindows_Open('TL_Settings_Reset')">
+                            <img class='General_Button_Icon' src='Assets/Icons/icon_softwareUpdate.png' draggable='false' loading='lazy' Position="Left"/>
+                            Reset settings
+                        </div>
                     </div>
+                    
                     <div class="Accordion" id="Accordion_InactiveSleeping">
                         <div class="Accordion_Title" onclick="Accordion_Toggle(this.parentNode.id)">
                             <h2 class="Accordion_Title_Text">
@@ -607,9 +638,32 @@
                             </div>
                             <form class="Input_Form" Label_Position="Left" autocomplete="off">
                                 <label class="Input_Label" for="Input_TL_Setting_ScreenTimeout">
-                                    Screen timeout (in minutes): 
+                                    Screen timeout (in seconds): 
                                 </label>
-                                <input type="number" class="Input_Text" id="Input_TL_Setting_ScreenTimeout" autocomplete="off" placeholder="1 - 1000 minutes" max="1000" min="1"/>
+                                <input type="number" class="Input_Text" id="Input_TL_Setting_ScreenTimeout" autocomplete="off" placeholder="Minimum of 1 second" min="1" max="999999999999" value="120"/>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="Accordion" id="Accordion_ClockShifting">
+                        <div class="Accordion_Title" onclick="Accordion_Toggle(this.parentNode.id)">
+                            <h2 class="Accordion_Title_Text">
+                                Clock Shifting
+                            </h2>
+                            <img class='Accordion_Title_Arrow' src='Assets/Icons/icon_downArrow.png' draggable='false' loading='lazy'/>
+                        </div>
+                        <div class="Accordion_Content" State="Expanded">
+                            <p class="General_Paragraph">
+                                When enabled, the clock shifts by a couple of pixels every 5 minutes.
+                            </p>
+                            <div class="Toggle" id="Toggle_TL_Setting_ClockShifting" onclick="Buttons_Toggle(this.id)" State="Active">
+                                <div class="Toggle_Indicator"></div>
+                                Enable Clock Shifting
+                            </div>
+                            <form class="Input_Form" Label_Position="Left" autocomplete="off">
+                                <label class="Input_Label" for="Input_TL_Setting_ClockShifting_Distance">
+                                    Shift distance (in pixels): 
+                                </label>
+                                <input type="number" class="Input_Text" id="Input_TL_Setting_ClockShifting_Distance" autocomplete="off" placeholder="Minimum of 1 pixel" min="1" max="250" value="5"/>
                             </form>
                         </div>
                     </div>
@@ -632,6 +686,12 @@
                                 <div class="Toggle_Indicator"></div>
                                 Make the clock colon(s) fade in and out when blinking
                             </div>
+                            <form class="Input_Form" Label_Position="Left" autocomplete="off">
+                                <label class="Input_Label" for="Input_TL_Setting_ColonBlinking_Duration">
+                                    Duration (in seconds): 
+                                </label>
+                                <input type="number" class="Input_Text" id="Input_TL_Setting_ColonBlinking_Duration" autocomplete="off" placeholder="Minimum of 1 second" min="0.5" max="999999999999" value="1"/>
+                            </form>
                         </div>
                     </div>
                     <div class="Accordion" id="Accordion_ClockElements">
@@ -682,10 +742,20 @@
                     </div>
                 </div>
                 <div class="Tab_Container_Content_Item Content_Item" id="tab_Colors">
-                    <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
-                        <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
-                        Go back to clock
-                    </div>
+                    <div style="display: flex">
+                        <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
+                             <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
+                             Go back to clock
+                         </div>
+                         <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Clock_Settings_Save()">
+                             <img class='General_Button_Icon' src='Assets/Icons/iconNew_save.png' draggable='false' loading='lazy' Position="Left"/>
+                             Save changes
+                         </div>
+                         <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="Subwindows_Open('TL_Settings_Reset')">
+                             <img class='General_Button_Icon' src='Assets/Icons/icon_softwareUpdate.png' draggable='false' loading='lazy' Position="Left"/>
+                             Reset settings
+                         </div>
+                     </div>
                     <div class="TL_Settings_Clock_Preview">
                          <div class="TL_Clock_Main_Time">
                             <h1 class="TL_Clock_Main_Time_Hour_1">
@@ -719,7 +789,7 @@
                             <label class="Input_Label" for="Input_TL_Setting_Color_Background">
                                 Background color:
                             </label>
-                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Background" onchange="document.getElementById(this.id + '_Hex').value = this.value;" oninput="TL_Clock_Settings_Save()"/>
+                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Background" onchange="document.getElementById(this.id + '_Hex').value = this.value;" />
                             <input type="text" class="Input_Text" id="Input_TL_Setting_Color_Background_Hex" autocomplete="off" placeholder="Hexcode here" maxlength="7" onchange="document.getElementById(this.id.replace('_Hex', '')).value = this.value;"/>
                         </span>
                     </form>
@@ -728,7 +798,7 @@
                             <label class="Input_Label" for="Input_TL_Setting_Color_Hour_Digit_1">
                                 Hour (Digit 1):
                             </label>
-                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Hour_Digit_1" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  oninput="TL_Clock_Settings_Save()"/>
+                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Hour_Digit_1" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  />
                             <input type="text" class="Input_Text" id="Input_TL_Setting_Color_Hour_Digit_1_Hex" autocomplete="off" placeholder="Hexcode here" maxlength="7" onchange="document.getElementById(this.id.replace('_Hex', '')).value = this.value;"/>
                         </span>
                         
@@ -736,7 +806,7 @@
                             <label class="Input_Label" for="Input_TL_Setting_Color_Hour_Digit_2">
                                 Hour (Digit 2):
                             </label>
-                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Hour_Digit_2" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  oninput="TL_Clock_Settings_Save()"/>
+                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Hour_Digit_2" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  />
                             <input type="text" class="Input_Text" id="Input_TL_Setting_Color_Hour_Digit_2_Hex" autocomplete="off" placeholder="Hexcode here" maxlength="7" onchange="document.getElementById(this.id.replace('_Hex', '')).value = this.value;"/>
                         </span>
                         
@@ -744,7 +814,7 @@
                             <label class="Input_Label" for="Input_TL_Setting_Color_Minute_Digit_1">
                                 Minute (Digit 1):
                             </label>
-                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Minute_Digit_1" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  oninput="TL_Clock_Settings_Save()"/>
+                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Minute_Digit_1" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  />
                             <input type="text" class="Input_Text" id="Input_TL_Setting_Color_Minute_Digit_1_Hex" autocomplete="off" placeholder="Hexcode here" maxlength="7" onchange="document.getElementById(this.id.replace('_Hex', '')).value = this.value;"/>
                         </span>
                         
@@ -752,7 +822,7 @@
                             <label class="Input_Label" for="Input_TL_Setting_Color_Minute_Digit_2">
                                 Minute (Digit 2):
                             </label>
-                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Minute_Digit_2" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  oninput="TL_Clock_Settings_Save()"/>
+                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Minute_Digit_2" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  />
                             <input type="text" class="Input_Text" id="Input_TL_Setting_Color_Minute_Digit_2_Hex" autocomplete="off" placeholder="Hexcode here" maxlength="7" onchange="document.getElementById(this.id.replace('_Hex', '')).value = this.value;"/>
                         </span>
                         
@@ -760,7 +830,7 @@
                             <label class="Input_Label" for="Input_TL_Setting_Color_Second_Digit_1">
                                 Second (Digit 1):
                             </label>
-                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Second_Digit_1" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  oninput="TL_Clock_Settings_Save()"/>
+                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Second_Digit_1" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  />
                             <input type="text" class="Input_Text" id="Input_TL_Setting_Color_Second_Digit_1_Hex" autocomplete="off" placeholder="Hexcode here" maxlength="7" onchange="document.getElementById(this.id.replace('_Hex', '')).value = this.value;"/>
                         </span>
                         
@@ -768,7 +838,7 @@
                             <label class="Input_Label" for="Input_TL_Setting_Color_Second_Digit_2">
                                 Second (Digit 2):
                             </label>
-                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Second_Digit_2" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  oninput="TL_Clock_Settings_Save()"/>
+                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Second_Digit_2" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  />
                             <input type="text" class="Input_Text" id="Input_TL_Setting_Color_Second_Digit_2_Hex" autocomplete="off" placeholder="Hexcode here" maxlength="7" onchange="document.getElementById(this.id.replace('_Hex', '')).value = this.value;"/>
                         </span>
 
@@ -776,7 +846,7 @@
                             <label class="Input_Label" for="Input_TL_Setting_Color_Colon_Hour">
                                 Hour colon:
                             </label>
-                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Colon_Hour" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  oninput="TL_Clock_Settings_Save()"/>
+                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Colon_Hour" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  />
                             <input type="text" class="Input_Text" id="Input_TL_Setting_Color_Colon_Hour_Hex" autocomplete="off" placeholder="Hexcode here" maxlength="7" onchange="document.getElementById(this.id.replace('_Hex', '')).value = this.value;"/>
                         </span>
                         
@@ -784,17 +854,27 @@
                             <label class="Input_Label" for="Input_TL_Setting_Color_Colon_Minute">
                                 Minute colon:
                             </label>
-                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Colon_Minute" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  oninput="TL_Clock_Settings_Save()"/>
+                            <input type="color" class="Input_Color" id="Input_TL_Setting_Color_Colon_Minute" onchange="document.getElementById(this.id + '_Hex').value = this.value;"  />
                             <input type="text" class="Input_Text" id="Input_TL_Setting_Color_Colon_Minute_Hex" autocomplete="off" placeholder="Hexcode here" maxlength="7" onchange="document.getElementById(this.id.replace('_Hex', '')).value = this.value;"/>
                         </span>
                     </form>
                     
                 </div>
                 <div class="Tab_Container_Content_Item Content_Item" id="tab_Font">
-                    <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
-                        <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
-                        Go back to clock
-                    </div>
+                    <div style="display: flex">
+                        <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
+                             <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
+                             Go back to clock
+                         </div>
+                         <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Clock_Settings_Save()">
+                             <img class='General_Button_Icon' src='Assets/Icons/iconNew_save.png' draggable='false' loading='lazy' Position="Left"/>
+                             Save changes
+                         </div>
+                         <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="Subwindows_Open('TL_Settings_Reset')">
+                             <img class='General_Button_Icon' src='Assets/Icons/icon_softwareUpdate.png' draggable='false' loading='lazy' Position="Left"/>
+                             Reset settings
+                         </div>
+                     </div>
                     <div class="TL_Settings_Clock_Preview">
                         <div class="TL_Clock_Main_Time">
                            <h1 class="TL_Clock_Main_Time_Hour_1">
@@ -866,10 +946,16 @@
                     </h1>
                 </div>
                 <div class="Tab_Container_Content_Item Content_Item" id="tab_Positions">
-                    <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
-                        <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
-                        Go back to clock
-                    </div>
+                    <div style="display: flex">
+                        <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
+                             <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
+                             Go back to clock
+                         </div>
+                         <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Clock_Settings_Save()">
+                             <img class='General_Button_Icon' src='Assets/Icons/iconNew_save.png' draggable='false' loading='lazy' Position="Left"/>
+                             Save changes
+                         </div>
+                     </div>
                     <div class="General_Button" onclick="TL_Clock_Settings_Open_Sizer()">
                         Change clock size
                     </div>
