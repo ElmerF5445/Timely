@@ -72,7 +72,16 @@
 .TL_Clock_Main_Time > h1{
     -webkit-text-stroke-color: #00000000;
     -webkit-text-stroke-width: 3px;
-    transition: all var(--Element-Transition-Delay), color 3s, -webkit-text-stroke-color 3s;
+    transition: all var(--Element-Transition-Delay), color 3s, -webkit-text-stroke-color 3s, transform 0.2s;
+}
+
+.TL_Clock_Main_Time > h1[ZPosition = "Back"]{
+    z-index: 49;
+}
+
+.TL_Clock_Main_Time > h1[ZPosition = "Top"]{
+    z-index: 50;
+    outline: solid red;
 }
 
 .TL_Clock_Main_Time_Hour_1{
@@ -288,7 +297,7 @@
     border: solid var(--Accent-Color) 5px;
 }
 
-.TL_Clock[Mode="Settings_Layerer"]{
+.TL_Clock[Mode="Settings_Positioner"]{
     transform: scale(0.7) translateX(-20%);
     border: solid var(--Accent-Color) 5px;
 }
@@ -310,15 +319,16 @@
 .TL_Clock_Settings[State="Active"]{
     opacity: 100%;
     pointer-events: all;
+    display: block;
 }
 
 .TL_Clock_Settings[State="Inactive"]{
     opacity: 0%;
     pointer-events: none;
-
+    display: none;
 }
 
-.TL_Clock_Settings[State="Inactive"] > *{
+.TL_Clock_Settings[State="Inactive"] > div{
     opacity: 0%;
     pointer-events: none;
 }
@@ -335,12 +345,32 @@
     justify-content: center;
 }
 
+.TL_Clock_Settings_Sizer[State="Inactive"]{
+    display: none;
+}
+
 .TL_Clock_Settings_Sizer > input#Input_TL_Setting_Sizing{
     width: 95%;
 }
 
 .TL_Clock_Settings_Sizer > input#Input_TL_Setting_Sizing_Text{
     width: auto;
+}
+
+.TL_Clock_Settings_Positioner{
+    position: absolute;
+    right: 0px;
+    width: 25%;
+    height: 100%;
+    padding: 10px;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.TL_Clock_Settings_Positioner[State="Inactive"]{
+    display: none;
 }
 
 @keyframes Clock_Hide{

@@ -120,16 +120,24 @@ let TL_Clock_Settings = {
     },
     Elements:{
         "Hours": {
-            "Visible": "Active"
+            "Visible": "Active",
+            "Hours_1_Transform": "translate(0px, 0px)",
+            "Hours_2_Transform": "translate(0px, 0px)"
         },
         "Minutes": {
-            "Visible": "Active"
+            "Visible": "Active",
+            "Minutes_1_Transform": "translate(0px, 0px)",
+            "Minutes_2_Transform": "translate(0px, 0px)"
         },
         "Seconds": {
-            "Visible": "Active"
+            "Visible": "Active",
+            "Seconds_1_Transform": "translate(0px, 0px)",
+            "Seconds_2_Transform": "translate(0px, 0px)"
         },
         "Colons": {
-            "Visible": "Active"
+            "Visible": "Active",
+            "Colons_Hour_Transform": "translate(0px, 0px)",
+            "Colons_Minute_Transform": "translate(0px, 0px)"
         }
     }
 }
@@ -194,15 +202,12 @@ function TL_Clock_Settings_Load(){
         Root_Stylesheet.style.setProperty('--TL-Clock-Time-General-ColonBlinking', "Colon_Stare");
     }
     // Clock element visibility
-    if (TL_Clock_Settings.Elements.Colons.Visible != "Active"){
-        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_Colon", "Clock_Hide", "1s", "forwards", 1, 0);
-        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_Colon", "Clock_Hide", "1s", "forwards", 1, 0);
-    }
+    
     if (TL_Clock_Settings.Elements.Hours.Visible == "Active"){
         Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_1", "Clock_Show", "1s", "forwards", 1, 0);
         Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_2", "Clock_Show", "1s", "forwards", 1, 0);
         if (TL_Clock_Settings.Elements.Colons.Visible == "Active"){
-            Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_Colon", "Clock_Show", "1s", "forwards", 1, 0);
+            Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_Colon", null, "1s", "forwards", 1, 0);
         }
     } else {
         Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_1", "Clock_Hide", "1s", "forwards", 1, 0);
@@ -220,14 +225,41 @@ function TL_Clock_Settings_Load(){
         Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Second_1", "Clock_Show", "1s", "forwards", 1, 0);
         Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Second_2", "Clock_Show", "1s", "forwards", 1, 0);
         if (TL_Clock_Settings.Elements.Colons.Visible == "Active"){
-            Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_Colon", "Clock_Show", "1s", "forwards", 1, 0);
+            Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_Colon", null, "1s", "forwards", 1, 0);
         }
     } else {
         Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Second_1", "Clock_Hide", "1s", "forwards", 1, 0);
         Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Second_2", "Clock_Hide", "1s", "forwards", 1, 0);
         Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_Colon", "Clock_Hide", "1s", "forwards", 1, 0);
     }
-    
+    if (TL_Clock_Settings.Elements.Colons.Visible != "Active"){
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_Colon", "Clock_Hide", "1s", "forwards", 1, 0);
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_Colon", "Clock_Hide", "1s", "forwards", 1, 0);
+    } else {
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_Colon", null, "1s", "forwards", 1, 0);
+        Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_Colon", null, "1s", "forwards", 1, 0);
+        if (TL_Clock_Settings.General.ColonBlinking == "Active"){
+            Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Hour_Colon", "var(--TL-Clock-Time-General-ColonBlinking)", "var(--TL-Clock-Time-General-ColonBlinking-Duration)", null, "infinite", 0);
+            Element_Style_Animate_Batch_QuerySelector(".TL_Clock_Main_Time_Minute_Colon", "var(--TL-Clock-Time-General-ColonBlinking)", "var(--TL-Clock-Time-General-ColonBlinking-Duration)", null, "infinite", 0);
+        }
+        document.getElementById("TL_Clock_Main_Time_Hour_Colon").style.display = "none";
+        document.getElementById("TL_Clock_Main_Time_Minute_Colon").style.display = "none";
+        if (TL_Clock_Settings.Elements.Hours.Visible != "Active" || TL_Clock_Settings.Elements.Minutes.Visible != "Active"){
+            document.getElementById("TL_Clock_Main_Time_Hour_Colon").style.display = "none";
+        }
+        if (TL_Clock_Settings.Elements.Minutes.Visible != "Active" || TL_Clock_Settings.Elements.Seconds.Visible != "Active"){
+            document.getElementById("TL_Clock_Main_Time_Minute_Colon").style.display = "none";
+        }
+    }
+    // Clock element positioning
+    document.getElementById("TL_Clock_Main_Time_Hour_1").style.transform = TL_Clock_Settings.Elements.Hours.Hours_1_Transform;
+    document.getElementById("TL_Clock_Main_Time_Hour_2").style.transform = TL_Clock_Settings.Elements.Hours.Hours_2_Transform;
+    document.getElementById("TL_Clock_Main_Time_Minute_1").style.transform = TL_Clock_Settings.Elements.Minutes.Minutes_1_Transform;
+    document.getElementById("TL_Clock_Main_Time_Minute_2").style.transform = TL_Clock_Settings.Elements.Minutes.Minutes_2_Transform;
+    document.getElementById("TL_Clock_Main_Time_Second_1").style.transform = TL_Clock_Settings.Elements.Seconds.Seconds_1_Transform;
+    document.getElementById("TL_Clock_Main_Time_Second_2").style.transform = TL_Clock_Settings.Elements.Seconds.Seconds_2_Transform;
+    document.getElementById("TL_Clock_Main_Time_Hour_Colon").style.transform = TL_Clock_Settings.Elements.Hours.Colons_Hour_Transform;
+    document.getElementById("TL_Clock_Main_Time_Minute_Colon").style.transform = TL_Clock_Settings.Elements.Hours.Colons_Minute_Transform;
     TL_Clock_Settings_Load_Values();
 }
 
@@ -300,7 +332,16 @@ function TL_Clock_Settings_Save(){
     TL_Clock_Settings.Elements.Hours.Visible = Element_Attribute_Get("Toggle_TL_Setting_ClockElements_Hours", "State");
     TL_Clock_Settings.Elements.Minutes.Visible = Element_Attribute_Get("Toggle_TL_Setting_ClockElements_Minutes", "State");
     TL_Clock_Settings.Elements.Seconds.Visible = Element_Attribute_Get("Toggle_TL_Setting_ClockElements_Seconds", "State");
-    TL_Clock_Settings.Elements.Seconds.Colons = Element_Attribute_Get("Toggle_TL_Setting_ClockElements_Colon", "State");
+    TL_Clock_Settings.Elements.Colons.Visible = Element_Attribute_Get("Toggle_TL_Setting_ClockElements_Colon", "State");
+    // Clock element sizing
+    TL_Clock_Settings.Elements.Hours.Hours_1_Transform = document.getElementById("TL_Clock_Main_Time_Hour_1").style.transform;
+    TL_Clock_Settings.Elements.Hours.Hours_2_Transform = document.getElementById("TL_Clock_Main_Time_Hour_2").style.transform;
+    TL_Clock_Settings.Elements.Minutes.Minutes_1_Transform = document.getElementById("TL_Clock_Main_Time_Minute_1").style.transform;
+    TL_Clock_Settings.Elements.Minutes.Minutes_2_Transform = document.getElementById("TL_Clock_Main_Time_Minute_2").style.transform;
+    TL_Clock_Settings.Elements.Seconds.Seconds_1_Transform = document.getElementById("TL_Clock_Main_Time_Second_1").style.transform;
+    TL_Clock_Settings.Elements.Seconds.Seconds_2_Transform = document.getElementById("TL_Clock_Main_Time_Second_2").style.transform;
+    TL_Clock_Settings.Elements.Colons.Colons_Hour_Transform = document.getElementById("TL_Clock_Main_Time_Hour_Colon").style.transform;
+    TL_Clock_Settings.Elements.Colons.Colons_Minute_Transform = document.getElementById("TL_Clock_Main_Time_Minute_Colon").style.transform;
     // Save to local storage
     localStorage.setItem(TL_Clock_Settings_Key, JSON.stringify(TL_Clock_Settings));
     TL_Clock_Settings_Load();
@@ -321,11 +362,15 @@ function TL_Clock_Settings_Open_Sizer(){
     setTimeout(function(){
         Element_Attribute_Set("TL_Clock", "Mode", "Settings_Sizer");
         Element_Attribute_Set("TL_Clock_Settings", "State", "Active");
+        Element_Attribute_Set("TL_Clock_Settings_Sizer", "State", "Active");
+        Element_Attribute_Set("TL_Clock_Settings_Positioner", "State", "Inactive");
     }, 500);
 }
 
 function TL_Clock_Settings_Close_Sizer(){
     Element_Attribute_Remove("TL_Clock", "Mode");
+    Element_Attribute_Set("TL_Clock_Settings_Sizer", "State", "Inactive");
+    Element_Attribute_Set("TL_Clock_Settings_Positioner", "State", "Inactive");
     setTimeout(function(){
         TL_Close_Clock();
         Element_Attribute_Set("TL_Clock_Settings", "State", "Inactive");
@@ -357,4 +402,115 @@ function TL_Clock_ClockShifting_Update_Timer(){
         document.getElementById("TL_Clock_Main").style.transform = `translate(${TL_Clock_ClockShifting_Offset_X}px, ${TL_Clock_ClockShifting_Offset_Y}px`;
     }
     setTimeout(TL_Clock_ClockShifting_Update_Timer, 300000);
+}
+
+function TL_Clock_Settings_Open_Positioner(){
+    TL_Open_Clock();
+    setTimeout(function(){
+        Element_Attribute_Set("TL_Clock", "Mode", "Settings_Positioner");
+        Element_Attribute_Set("TL_Clock_Settings", "State", "Active");
+        Element_Attribute_Set("TL_Clock_Settings_Sizer", "State", "Inactive");
+        Element_Attribute_Set("TL_Clock_Settings_Positioner", "State", "Active");
+    }, 500);
+}
+
+function TL_Clock_Settings_Close_Positioner(){
+    Element_Attribute_Remove("TL_Clock", "Mode");
+    Element_Attribute_Set("TL_Clock_Settings_Sizer", "State", "Inactive");
+    Element_Attribute_Set("TL_Clock_Settings_Positioner", "State", "Inactive");
+    setTimeout(function(){
+        TL_Close_Clock();
+        Element_Attribute_Set("TL_Clock_Settings", "State", "Inactive");
+    }, 300);
+    Element_Attribute_Set("TL_Clock_Main_Time_Hour_1", "ZPosition", "Back");
+    Element_Attribute_Set("TL_Clock_Main_Time_Hour_2", "ZPosition", "Back");
+    Element_Attribute_Set("TL_Clock_Main_Time_Hour_Colon", "ZPosition", "Back");Element_Attribute_Set("TL_Clock_Main_Time_Minute_1", "ZPosition", "Back");
+    Element_Attribute_Set("TL_Clock_Main_Time_Minute_2", "ZPosition", "Back");
+    Element_Attribute_Set("TL_Clock_Main_Time_Minute_Colon", "ZPosition", "Back");
+    Element_Attribute_Set("TL_Clock_Main_Time_Second_1", "ZPosition", "Back");
+    Element_Attribute_Set("TL_Clock_Main_Time_Second_1", "ZPosition", "Back");
+    TL_Clock_Settings_Load();
+}
+
+// Positioner
+let draggableElements = document.querySelectorAll('.TL_Clock_Main_Time_Element');
+var TL_Clock_Settings_Positioner_GridSize = 10;
+draggableElements.forEach((element) => {
+    let initialX;
+    let initialY;
+    let isDragging = false;
+    element.addEventListener('mousedown', (event) =>{
+        if (Element_Attribute_Get('TL_Clock_Settings_Positioner', 'State') == 'Active'){
+            isDragging = true;
+            const initialTransform = element.style.transform;
+            const initialMatrix = new DOMMatrix(initialTransform);
+            initialX = event.clientX - initialMatrix.m41;
+            initialY = event.clientY - initialMatrix.m42;
+            console.log(initialMatrix.m41 + " : " + initialMatrix.m42);
+            element.style.outline = "solid red";
+        }
+    });
+
+    document.addEventListener('mousemove', (event) =>{
+        if (Element_Attribute_Get('TL_Clock_Settings_Positioner', 'State') == 'Active'){
+            if (isDragging){
+                const deltaX = event.clientX - initialX;
+                const deltaY = event.clientY - initialY;
+
+                const snappedDeltaX = Math.round(deltaX / TL_Clock_Settings_Positioner_GridSize) * TL_Clock_Settings_Positioner_GridSize;
+                const snappedDeltaY = Math.round(deltaY / TL_Clock_Settings_Positioner_GridSize) * TL_Clock_Settings_Positioner_GridSize;
+                console.log(deltaX + " : " + deltaY);
+                element.style.transform = `translate(${snappedDeltaX}px, ${snappedDeltaY}px)`;
+                element.style.outline = "solid red";
+            }
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        element.style.outline = null;
+    });
+});
+
+function TL_Clock_Settings_Positioner_ResetPositions(){
+    let draggableElements = document.querySelectorAll('.TL_Clock_Main_Time_Element');
+    draggableElements.forEach((element) => {
+        element.style.transform = null;
+    });
+}
+
+function TL_Clock_Settings_Positioner_SetToTop(Element){
+    Element_Attribute_Set("TL_Clock_Main_Time_Hour_1", "ZPosition", "Back");
+    Element_Attribute_Set("TL_Clock_Main_Time_Hour_2", "ZPosition", "Back");
+    Element_Attribute_Set("TL_Clock_Main_Time_Hour_Colon", "ZPosition", "Back");Element_Attribute_Set("TL_Clock_Main_Time_Minute_1", "ZPosition", "Back");
+    Element_Attribute_Set("TL_Clock_Main_Time_Minute_2", "ZPosition", "Back");
+    Element_Attribute_Set("TL_Clock_Main_Time_Minute_Colon", "ZPosition", "Back");
+    Element_Attribute_Set("TL_Clock_Main_Time_Second_1", "ZPosition", "Back");
+    Element_Attribute_Set("TL_Clock_Main_Time_Second_1", "ZPosition", "Back");
+    switch (Element){
+        case "H1":
+            Element_Attribute_Set("TL_Clock_Main_Time_Hour_1", "ZPosition", "Top");
+            break;
+        case "H2":
+            Element_Attribute_Set("TL_Clock_Main_Time_Hour_2", "ZPosition", "Top");
+            break;
+        case "CHM":
+            Element_Attribute_Set("TL_Clock_Main_Time_Hour_Colon", "ZPosition", "Top");
+            break;
+        case "M1":
+            Element_Attribute_Set("TL_Clock_Main_Time_Minute_1", "ZPosition", "Top");
+            break;
+        case "M2":
+            Element_Attribute_Set("TL_Clock_Main_Time_Minute_2", "ZPosition", "Top");
+            break;
+        case "CMS":
+            Element_Attribute_Set("TL_Clock_Main_Time_Minute_Colon", "ZPosition", "Top");
+            break;
+        case "S1":
+            Element_Attribute_Set("TL_Clock_Main_Time_Second_1", "ZPosition", "Top");
+            break;
+        case "S2":
+            Element_Attribute_Set("TL_Clock_Main_Time_Second_2", "ZPosition", "Top");
+            break;
+    }
 }
