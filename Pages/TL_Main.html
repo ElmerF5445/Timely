@@ -429,7 +429,7 @@
                 <input type="number" class="Input_Text" onchange="document.getElementById(this.id.replace('_Text', '')).value = this.value;" id="Input_TL_Setting_Sizing_Text"/> 
             </div>
             <div class="TL_Clock_Settings_Positioner" id="TL_Clock_Settings_Positioner">
-                <div style="display: flex; margin-bottom: 10px">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 10px">
                     <div class="General_Button" onclick="TL_Clock_Settings_Close_Positioner()" style="margin-right: 10px">
                         <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
                         Go back
@@ -443,29 +443,52 @@
                     <div class="General_Button" style="margin-bottom: 10px" onclick="TL_Clock_Settings_Positioner_ResetPositions()">
                         Reset positions
                     </div>
-                    <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('H1')">
-                        Hour Digit 1
+                    <p class="General_Title">
+                        Hours
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px">
+                        <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('H1')">
+                            Digit 1
+                        </div>
+                        <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('H2')">
+                            Digit 2
+                        </div>
                     </div>
-                    <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('H2')">
-                        Hour Digit 2
+                    
+                    <p class="General_Title">
+                        Minutes
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px">
+                        <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('M1')">
+                            Digit 1
+                        </div>
+                        <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('M2')">
+                            Digit 2
+                        </div>
                     </div>
-                    <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('CHM')">
-                        Colon Hours - Minutes
+                                        
+                    <p class="General_Title">
+                        Seconds
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px">
+                        <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('S1')">
+                            Digit 1
+                        </div>
+                        <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('S2')">
+                            Digit 2
+                        </div>
                     </div>
-                    <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('M1')">
-                        Minute Digit 1
-                    </div>
-                    <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('M2')">
-                        Minute Digit 2
-                    </div>
-                    <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('CMS')">
-                        Colon Minutes - Seconds
-                    </div>
-                    <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('S1')">
-                        Seconds Digit 1
-                    </div>
-                    <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('S2')">
-                        Seconds Digit 2
+                   
+                    <p class="General_Title">
+                        Colons
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px">
+                        <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('CHM')">
+                            H - M
+                        </div>
+                        <div class="General_Button" onclick="TL_Clock_Settings_Positioner_SetToTop('CMS')">
+                            M - S
+                        </div>
                     </div>
                 </div>
             </div>
