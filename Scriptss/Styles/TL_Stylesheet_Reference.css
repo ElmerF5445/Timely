@@ -1,0 +1,100 @@
+@font-face {
+	font-family: "Awery";
+	src: url('../../Assets/Fonts/Awery.ttf') format("truetype");
+	font-weight: 100 900;
+}
+
+@font-face {
+	font-family: "Digital_Dismay";
+	src: url('../../Assets/Fonts/Digital\ Dismay.otf') format("opentype");
+	font-weight: 100 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Futura";
+	src: url("../../Assets/Fonts/Futura\ Display\ BQ\ Regular.otf") format("opentype");
+	font-weight: 100 900;
+}
+
+@font-face {
+	font-family: "Gas";
+	src: url('../../Assets/Fonts/GAS_____.TTF') format("truetype");
+	font-weight: 100 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Klarissa";
+	src: url("../../Assets/Fonts/Klarissa.ttf") format("truetype");
+	font-weight: 100 900;
+}
+
+@font-face {
+	font-family: "Library";
+	src: url("../../Assets/Fonts/Library\ 3\ am.otf") format("opentype");
+	font-weight: 100 900;
+}
+
+@font-face {
+	font-family: "Middlecase";
+	src: url('../../Assets/Fonts/Middlecase\ Next\ Inline.otf') format("opentype");
+	font-weight: 100 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Mini_Pixel";
+	src: url("../../Assets/Fonts/mini_pixel-7.ttf") format("truetype");
+	font-weight: 100 900;
+}
+
+@font-face {
+	font-family: "One";
+	src: url("../../Assets/Fonts/OneUI6DefaultFont_SEC-VF.ttf") format("truetype");
+	font-weight: 100 900;
+}
+
+:root{
+    /* General */
+    --TL-Clock-Time-Background-Color: black;
+    --TL-Clock-Time-General-Color: white;
+    --TL-Clock-Time-General-Size: 40vh;
+    --TL-Clock-Time-General-Font: Digital_Dismay;
+    --TL-Clock-Time-General-Font_Weight: 100 900;
+    --TL-Clock-Time-General-ColonBlinking: Colon_Blink;
+    --TL-Clock-Time-General-ColonBlinking-Duration: 2s;
+    --TL-Clock-Time-General-ColonBlinking-TimingFunction: steps(1);
+    /* Hour 1 */
+    --TL-Clock-Time-Hour-1-Color: var(--TL-Clock-Time-General-Color);
+    --TL-Clock-Time-Hour-1-Size: var(--TL-Clock-Time-General-Size);
+    --TL-Clock-Time-Hour-1-Font: var(--TL-Clock-Time-General-Font);
+    /* Hour 2 */
+    --TL-Clock-Time-Hour-2-Color: var(--TL-Clock-Time-General-Color);
+    --TL-Clock-Time-Hour-2-Size: var(--TL-Clock-Time-General-Size);
+    --TL-Clock-Time-Hour-2-Font: var(--TL-Clock-Time-General-Font);
+    /* Hour colon */
+    --TL-Clock-Time-Hour-Colon-Color: var(--TL-Clock-Time-General-Color);
+    --TL-Clock-Time-Hour-Colon-Size: var(--TL-Clock-Time-General-Size);
+    --TL-Clock-Time-Hour-Colon-Font: var(--TL-Clock-Time-General-Font);
+    /* Minute 1 */
+    --TL-Clock-Time-Minute-1-Color: var(--TL-Clock-Time-General-Color);
+    --TL-Clock-Time-Minute-1-Size: var(--TL-Clock-Time-General-Size);
+    --TL-Clock-Time-Minute-1-Font: var(--TL-Clock-Time-General-Font);
+    /* Minute 2 */
+    --TL-Clock-Time-Minute-2-Color: var(--TL-Clock-Time-General-Color);
+    --TL-Clock-Time-Minute-2-Size: var(--TL-Clock-Time-General-Size);
+    --TL-Clock-Time-Minute-2-Font: var(--TL-Clock-Time-General-Font);
+    /* Minute colon */
+    --TL-Clock-Time-Minute-Colon-Color: var(--TL-Clock-Time-General-Color);
+    --TL-Clock-Time-Minute-Colon-Size: var(--TL-Clock-Time-General-Size);
+    --TL-Clock-Time-Minute-Colon-Font: var(--TL-Clock-Time-General-Font);
+    /* Second 1 */
+    --TL-Clock-Time-Second-1-Color: var(--TL-Clock-Time-General-Color);
+    --TL-Clock-Time-Second-1-Size: var(--TL-Clock-Time-General-Size);
+    --TL-Clock-Time-Second-1-Font: var(--TL-Clock-Time-General-Font);
+    /* Second 2 */
+    --TL-Clock-Time-Second-2-Color: var(--TL-Clock-Time-General-Color);
+    --TL-Clock-Time-Second-2-Size: var(--TL-Clock-Time-General-Size);
+    --TL-Clock-Time-Second-2-Font: var(--TL-Clock-Time-General-Font);
+}
