@@ -179,6 +179,7 @@ function TL_Clock_Settings_Load(){
     } else {
         clearTimeout(TL_Clock_InactiveSleeping_TimeoutID);
         Element_Attribute_Set("TL_Clock_Main", "Mode", "Active");
+        Element_Attribute_Set("TL_Clock", "Mode", "Active");
     }
     // Clock Shifting
     if (TL_Clock_Settings.General.InactiveSleeping == "Active"){
@@ -380,8 +381,9 @@ function TL_Clock_Settings_Close_Sizer(){
 let TL_Clock_InactiveSleeping_TimeoutID;
 function TL_Clock_InactiveSleeping_Update_Timer(){
     if (TL_Clock_Settings.General.InactiveSleeping == "Active"){
-        if (Element_Attribute_Get("TL_Clock_Main", "Mode") == "Active" || Element_Attribute_Get("TL_Clock_Main_Time", "Mode") == null){
-            Element_Attribute_Set("TL_Clock_Main", "Mode", "Inactive");
+        if (Element_Attribute_Get("TL_Clock_Main", "Activeness") == "Active" || Element_Attribute_Get("TL_Clock_Main_Time", "Activeness") == null){
+            Element_Attribute_Set("TL_Clock_Main", "Activeness", "Inactive");
+            Element_Attribute_Set("TL_Clock", "Activeness", "Inactive");
         }
         setTimeout(TL_Clock_InactiveSleeping_Update_Timer, (TL_Clock_Settings.General.InactiveSleeping_Timeout * 1000));
     }

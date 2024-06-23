@@ -1,9 +1,11 @@
 function LoadingScreen_Hide(){
     Element_Opacity_Set("LoadingScreen", 0);
+    Element_Attribute_Set("LoadingScreen", "State", "Disabled");
 }
 
 function LoadingScreen_Show(){
     Element_Opacity_Set("LoadingScreen", 100);
+	Element_Attribute_Set("LoadingScreen", "State", "Enabled");
 }
 
 function Header_Toggle_PageNavigation(){
@@ -11,11 +13,12 @@ function Header_Toggle_PageNavigation(){
         // Element_Style_Display("Header_PageNavigation_Menu", "grid");
 		Element_Attribute_Set("Header_PageNavigation_Menu", "State", "Active");
         Element_Style_Animate("Header_PageNavigation_Menu", "Overlays_Menu_Open", "0.3s", "forwards");
-		Element_Style_Animate_Batch_QuerySelector(".Header_PageNavigation_Menu_Content", "Overlays_Menu_Content_Open", "0.3s", "forwards", "1", 200);
+		Element_Style_Animate_Batch_QuerySelector(".Header_PageNavigation_Menu_Content", "Overlays_Menu_Content_Open", "0.3s", "forwards", "1", 50);
+		Element_Style_Animate_Batch_QuerySelector(".Header_PageNavigation_Menu_Button_Item", "Overlays_Menu_Content_Open", "0.3s", "forwards", "1", 50);
     } else if (Element_Attribute_Get("Header_PageNavigation_Menu", "State") == "Active"){
         Element_Style_Animate("Header_PageNavigation_Menu", "Overlays_Menu_Close", "0.3s", "forwards");
 		// Element_Attribute_Set("Header_PageNavigation_Menu", "State", "Inactive");
-		Element_Style_Animate_Batch_QuerySelector(".Header_PageNavigation_Menu_Content", "Overlays_Menu_Content_Close", "0.3s", "forwards", "1", 200);
+		Element_Style_Animate_Batch_QuerySelector(".Header_PageNavigation_Menu_Content", "Overlays_Menu_Content_Close", "0.3s", "forwards", "1", 0);
         setTimeout(function(){Element_Attribute_Set("Header_PageNavigation_Menu", "State", "Inactive");}, 300);
     }
 }
@@ -25,10 +28,11 @@ function Header_Toggle_StatusTray(){
         // Element_Style_Display("Header_StatusTray_Menu", "grid");
 		Element_Attribute_Set("Header_StatusTray_Menu", "State", "Active");
         Element_Style_Animate("Header_StatusTray_Menu", "Overlays_Menu_Open", "0.3s", "forwards");
-		Element_Style_Animate_Batch_QuerySelector(".Header_StatusTray_Menu_Content", "Overlays_Menu_Content_Open", "0.3s", "forwards", "1", 200);
+		Element_Style_Animate_Batch_QuerySelector(".Header_StatusTray_Menu_Content", "Overlays_Menu_Content_Open", "0.3s", "forwards", "1", 50);
+		Element_Style_Animate_Batch_QuerySelector(".Header_PageNavigation_Menu_Button_Item", "Overlays_Menu_Content_Open", "0.3s", "forwards", "1", 50);
     } else if (Element_Attribute_Get("Header_StatusTray_Menu", "State") == "Active"){
         Element_Style_Animate("Header_StatusTray_Menu", "Overlays_Menu_Close", "0.3s", "forwards");
-		Element_Style_Animate_Batch_QuerySelector(".Header_StatusTray_Menu_Content", "Overlays_Menu_Content_Close", "0.3s", "forwards", "1", 200);
+		Element_Style_Animate_Batch_QuerySelector(".Header_StatusTray_Menu_Content", "Overlays_Menu_Content_Close", "0.3s", "forwards", "1", 0);
         setTimeout(function(){Element_Attribute_Set("Header_StatusTray_Menu", "State", "Inactive");}, 300);
     }
 }
@@ -51,16 +55,16 @@ function Sidebar_Toggle(){
     var Sidebar_State = Element_Attribute_Get("Sidebar", "State");
 	if (Sidebar_State == "Collapsed" || Sidebar_State == "Collapsed_Hide"){
         Element_Attribute_Set("Sidebar", "State", "Expanded");
-		if (App_Property.Sidebar_PushContentWhenExpanded == true){
+		if (App_Property.Sidebar.PushContentWhenExpanded == true){
 			Element_Attribute_Set("MainContent_Container", "Style_PusherActive", "Active");
 			Element_Attribute_Set("MainContent_Container_Pusher", "State", "Active");
 		}
 	} else if (Sidebar_State == "Expanded"){
 		Element_Attribute_Set("Sidebar", "State", "Collapsed");
-		if (App_Property.Sidebar_HideWhenCollapsed == true){
+		if (App_Property.Sidebar.HideWhenCollapsed == true){
 			Element_Attribute_Set("Sidebar", "State", "Collapsed_Hide");
 		}
-		if (App_Property.Sidebar_PushContentWhenExpanded == true){
+		if (App_Property.Sidebar.PushContentWhenExpanded == true){
 			Element_Attribute_Remove("MainContent_Container", "Style_PusherActive");
 			Element_Attribute_Remove("MainContent_Container_Pusher", "State");
 		}
@@ -136,6 +140,7 @@ var Tabs_Target_Container_TabList = [];
 var Tabs_Target_Container_TabList_ID = [];
 var Tabs_Target_Container_TabList_ID_Index_CurrentTab;
 var Tabs_Target_Container_TabList_ID_Index_TargetTab;
+var Tabs_MainView_OriginalState;
 function Tabs_ChangeTab(ButtonID, Layout){
 	Tabs_Target_Container_TabList = [];
 	Tabs_Target_Container_TabList_ID = [];
@@ -223,6 +228,14 @@ function Tabs_ChangeTab(ButtonID, Layout){
 	if (document.getElementById(Tabs_Button_ID).getAttribute("Tabs_UseHeaderTitle") == "true"){
 		document.getElementById("pageElement_Header_Title").innerHTML = Tabs_Button_TabTitle;
 	}
+	if (Element_Attribute_Get(Tabs_Button_ID, "Tabs_UseFullContainer") == null){
+		App_Property.Page.MainView.UseFullContainer = Tabs_MainView_OriginalState;
+	} else if (Element_Attribute_Get(Tabs_Button_ID, "Tabs_UseFullContainer") == "true"){
+		App_Property.Page.MainView.UseFullContainer = true;
+	} else if (Element_Attribute_Get(Tabs_Button_ID, "Tabs_UseFullContainer") == "false"){
+		App_Property.Page.MainView.UseFullContainer = false;
+	}
+	Startup_Page_ApplyConfigurations("QuickChange", "ContainerOnly");
 	Tabs_Target_Container.setAttribute("Tabs_CurrentTab", Tabs_Button_Target_Tab);
 }
 

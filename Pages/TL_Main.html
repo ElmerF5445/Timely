@@ -328,59 +328,12 @@
                     </div> -->
                 </div>
             </div>
-            <div class="Header_PageNavigation_Menu_Actions Header_PageNavigation_Menu_Content">
+            <div class="Header_PageNavigation_Menu_Actions Header_PageNavigation_Menu_Content" style="display: none;">
                 <h1 class="Header_PageNavigation_Menu_Title">
                     Page Actions
                 </h1>
                 <div class="Header_PageNavigation_Menu_Buttons">
-                    <div class="Header_PageNavigation_Menu_Button_Item">
-                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
-                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
-                            Home
-                        </p>
-                    </div>
-                    <div class="Header_PageNavigation_Menu_Button_Item">
-                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
-                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
-                            Home
-                        </p>
-                    </div>
-                    <div class="Header_PageNavigation_Menu_Button_Item">
-                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
-                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
-                            Home
-                        </p>
-                    </div>
-                    <div class="Header_PageNavigation_Menu_Button_Item">
-                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
-                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
-                            Home
-                        </p>
-                    </div>
-                    <div class="Header_PageNavigation_Menu_Button_Item">
-                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
-                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
-                            Home
-                        </p>
-                    </div>
-                    <div class="Header_PageNavigation_Menu_Button_Item">
-                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
-                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
-                            Home
-                        </p>
-                    </div>
-                    <div class="Header_PageNavigation_Menu_Button_Item">
-                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
-                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
-                            Home
-                        </p>
-                    </div>
-                    <div class="Header_PageNavigation_Menu_Button_Item">
-                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
-                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
-                            Home
-                        </p>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -493,7 +446,7 @@
                 </div>
             </div>
         </div>
-        <div class="TL_Clock" id="TL_Clock" State="Active">
+        <div class="TL_Clock" id="TL_Clock" State="Active" onclick="Element_Attribute_Set('TL_Clock', 'Activeness', 'Active'); Element_Attribute_Set('TL_Clock_Main', 'Activeness', 'Active'); ">
             <div class="TL_Clock_Overlay_Back">
                 <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px; margin-left: 10px;" onclick="TL_Close_Clock()">
                     <img class='General_Button_Icon' src='Assets/Icons/icon_settings.png' draggable='false' loading='lazy' Position="Left"/>
@@ -507,7 +460,7 @@
             <div class="TL_Clock_Top">
                 
             </div>
-            <div class="TL_Clock_Main" id="TL_Clock_Main" onclick="Element_Attribute_Set('TL_Clock_Main', 'Mode', 'Active')">
+            <div class="TL_Clock_Main" id="TL_Clock_Main" onclick="Element_Attribute_Set('TL_Clock', 'Aciveness', 'Active'); Element_Attribute_Set('TL_Clock_Main', 'Activeness', 'Active'); ">
                 <div class="TL_Clock_Main_Time" id="TL_Clock_Main_Time">
                     <h1 class="TL_Clock_Main_Time_Element TL_Clock_Main_Time_Hour_1" id="TL_Clock_Main_Time_Hour_1">
                         1
@@ -629,7 +582,7 @@
         <div class="Tabs_Vertical_Container_Selector_Item" id="TabIDHere" onclick="Tabs_ChangeTab(this.id, 'Vertical')" Tabs_Tab_Title="General" Tabs_Tab_Target_Container="Content" Tabs_Tab_Target_Tab="tab_General" Tabs_UseHeaderTitle="true" State="Selected">
 			<div class="Tabs_Vertical_Container_Selector_Item_Icon">
 				<h2 class="Tabs_Vertical_Container_Selector_Item_Icon_Icon">
-					1
+					G
 				</h2>
 			</div>
 			<p class="Tabs_Vertical_Container_Selector_Item_Text">
@@ -638,7 +591,9 @@
 		</div>
 		<div class="Tabs_Vertical_Container_Selector_Item" id="TabIDHere2" onclick="Tabs_ChangeTab(this.id, 'Vertical')" Tabs_Tab_Title="Colors" Tabs_Tab_Target_Container="Content" Tabs_Tab_Target_Tab="tab_Colors" Tabs_UseHeaderTitle="true">
 			<div class="Tabs_Vertical_Container_Selector_Item_Icon">
-				<img src="Assets/Icons/placeholder.png" class="Tabs_Vertical_Container_Selector_Item_Icon_Icon"/>
+				<h2 class="Tabs_Vertical_Container_Selector_Item_Icon_Icon">
+					C
+				</h2>
 			</div>
 			<p class="Tabs_Vertical_Container_Selector_Item_Text">
 				Colors
@@ -647,7 +602,7 @@
 		<div class="Tabs_Vertical_Container_Selector_Item" id="TabIDHere3" onclick="Tabs_ChangeTab(this.id, 'Vertical')" Tabs_Tab_Title="Font" Tabs_Tab_Target_Container="Content" Tabs_Tab_Target_Tab="tab_Font" Tabs_UseHeaderTitle="true">
 			<div class="Tabs_Vertical_Container_Selector_Item_Icon">
 				<h2 class="Tabs_Vertical_Container_Selector_Item_Icon_Icon">
-					3
+					F
 				</h2>
 			</div>
 			<p class="Tabs_Vertical_Container_Selector_Item_Text">
@@ -657,7 +612,7 @@
         <div class="Tabs_Vertical_Container_Selector_Item" id="TabIDHere4" onclick="Tabs_ChangeTab(this.id, 'Vertical')" Tabs_Tab_Title="Positions and sizing" Tabs_Tab_Target_Container="Content" Tabs_Tab_Target_Tab="tab_Positions" Tabs_UseHeaderTitle="true">
 			<div class="Tabs_Vertical_Container_Selector_Item_Icon">
 				<h2 class="Tabs_Vertical_Container_Selector_Item_Icon_Icon">
-					3
+					P
 				</h2>
 			</div>
 			<p class="Tabs_Vertical_Container_Selector_Item_Text">
@@ -671,7 +626,7 @@
             <div class="Content" id="Content" Style_Margin="Enabled" Tabs_CurrentTab="">
                 <div class="Tab_Container_Content_Item Content_Item" id="tab_General">
                     <div style="display: flex">
-                       <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
+                       <div class="General_Button_Primary" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
                             <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
                             Go back to clock
                         </div>
@@ -807,7 +762,7 @@
                 </div>
                 <div class="Tab_Container_Content_Item Content_Item" id="tab_Colors">
                     <div style="display: flex">
-                        <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
+                        <div class="General_Button_Primary" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
                              <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
                              Go back to clock
                          </div>
@@ -926,7 +881,7 @@
                 </div>
                 <div class="Tab_Container_Content_Item Content_Item" id="tab_Font">
                     <div style="display: flex">
-                        <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
+                        <div class="General_Button_Primary" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
                              <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
                              Go back to clock
                          </div>
@@ -1008,7 +963,7 @@
                 </div>
                 <div class="Tab_Container_Content_Item Content_Item" id="tab_Positions">
                     <div style="display: flex">
-                        <div class="General_Button" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
+                        <div class="General_Button_Primary" Sizing_Width="Fit_Content" style="margin-top: 10px" onclick="TL_Open_Clock()">
                              <img class='General_Button_Icon' src='Assets/Icons/icon_leftArrow.png' draggable='false' loading='lazy' Position="Left"/>
                              Go back to clock
                          </div>

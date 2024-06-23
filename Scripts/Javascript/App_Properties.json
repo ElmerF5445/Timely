@@ -1,0 +1,158 @@
+[
+    {
+        "Page_File": "App_Template.html",
+        "Page_Property": {
+            "TitleBar_Title": "ERUMA UI",
+            "Page": {
+                "Title": "Template",
+                "Icon": "Assets/Icons/favicon.png",
+                "MainView": {
+                    "UseFullContainer": false
+                }
+            },
+            "Header": {
+                "Title": "Template Page",
+                "Icon": "Assets/Icons/favicon.png",
+                "Menu_Contents": {
+                    "PageNavigation": [
+                        {
+                            "Title": "App Template",
+                            "Link": "App_Template.html",
+                            "Icon": "Assets/Icons/icon_home.png"
+                        },
+                        {
+                            "Title": "Settings",
+                            "Link": "App_UniversalSettings.html",
+                            "Icon": "Assets/Icons/icon_settings.png"
+                        }
+                    ],
+                    "Actions": [
+                        {
+                            "Title": "Action 1",
+                            "Link": null,
+                            "Icon": "Assets/Icons/icon_home.png",
+                            "OnclickFunction": null
+                        },
+                        {
+                            "Title": "Action 1",
+                            "Link": null,
+                            "Icon": "Assets/Icons/icon_home.png",
+                            "OnclickFunction": null
+                        }
+                    ]
+                }
+            },
+            "Sidebar": {
+                "HideWhenCollapsed": false,
+                "PushContentWhenExpanded": false,
+                "Width_Expanded": 300,
+                "Width_Collapsed": 40
+            },
+            "LoadingScreen": {
+                "Configuration": "Splash"
+            },
+            "Features": {
+                "Header": true,
+                "Sidebar": true,
+                "Sidebar_Elements": {
+                    "Toggle": true,
+                    "Container": true,
+                    "Tabs": true
+                },
+                "ClockScreen": true,
+                "LoadingScreen": true,
+                "StatusBar": true,
+                "StatusBar_Elements": {
+                    "EnableAll": true,
+                    "Clock": true,
+                    "Battery": true,
+                    "Connection": true
+                },
+                "Ribbon": true,
+                "Toasts": true,
+                "Projects": true
+            }
+        }
+    },
+    {
+        "Page_File": "TL_Main.html",
+        "Page_Property": {
+            "TitleBar_Title": "Timely",
+            "Page": {
+                "Title": "Clock",
+                "Icon": "Assets/Icons/icon_schedules.png",
+                "MainView": {
+                    "UseFullContainer": false
+                }
+            },
+            "Header": {
+                "Title": "Timely",
+                "Icon": "Assets/Icons/icon_schedules.png",
+                "Menu_Contents": {
+                    "PageNavigation": [
+                        {
+                            "Title": "Clock",
+                            "Link": "Pages/TL_Main.html",
+                            "Icon": "Assets/Icons/icon_schedules.png"
+                        },
+                        {
+                            "Title": "Github Repository",
+                            "Link": "https://github.com/ElmerF5445/Timely",
+                            "Icon": "Assets/Icons/favicon.png"
+                        }
+                    ],
+                    "Actions": [
+                        {
+                            "Title": "Go back to clock",
+                            "Link": null,
+                            "Icon": "Assets/Icons/icon_schedules.png",
+                            "OnclickFunction": "TL_Open_Clock()"
+                        },
+                        {
+                            "Title": "Save changes",
+                            "Link": null,
+                            "Icon": "Assets/Icons/iconNew_save.png",
+                            "OnclickFunction": "TL_Clock_Settings_Save()"
+                        },
+                        {
+                            "Title": "Reset settings",
+                            "Link": null,
+                            "Icon": "Assets/Icons/icon_softwareUpate.png",
+                            "OnclickFunction": "Subwindows_Open('TL_Settings_Reset')"
+                        }
+                    ]
+                }
+            },
+            "Sidebar": {
+                "HideWhenCollapsed": false,
+                "PushContentWhenExpanded": true,
+                "Width_Expanded": 300,
+                "Width_Collapsed": 40
+            },
+            "LoadingScreen": {
+                "Configuration": "Simple"
+            },
+            "Features": {
+                "Header": true,
+                "Sidebar": true,
+                "Sidebar_Elements": {
+                    "Toggle": true,
+                    "Container": true,
+                    "Tabs": true
+                },
+                "ClockScreen": false,
+                "LoadingScreen": false,
+                "StatusBar": true,
+                "StatusBar_Elements": {
+                    "EnableAll": true,
+                    "Clock": true,
+                    "Battery": true,
+                    "Connection": true
+                },
+                "Ribbon": false,
+                "Toasts": true,
+                "Projects": false
+            }
+        }
+    }
+]
