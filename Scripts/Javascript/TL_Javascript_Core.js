@@ -121,18 +121,18 @@ let TL_Clock_Settings = {
     Elements:{
         "Hours": {
             "Visible": "Active",
-            "Hours_1_Transform": "translate(0px, 0px)",
-            "Hours_2_Transform": "translate(0px, 0px)"
+            "Hours_1_Transform": "translate(-450px, -20px)",
+            "Hours_2_Transform": "translate(-300px, -20px)"
         },
         "Minutes": {
             "Visible": "Active",
-            "Minutes_1_Transform": "translate(0px, 0px)",
-            "Minutes_2_Transform": "translate(0px, 0px)"
+            "Minutes_1_Transform": "translate(-100px, -20px)",
+            "Minutes_2_Transform": "translate(50px, -20px)"
         },
         "Seconds": {
             "Visible": "Active",
-            "Seconds_1_Transform": "translate(0px, 0px)",
-            "Seconds_2_Transform": "translate(0px, 0px)"
+            "Seconds_1_Transform": "translate(250px, -20px)",
+            "Seconds_2_Transform": "translate(410px, -20px)"
         },
         "Colons": {
             "Visible": "Active",
